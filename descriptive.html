@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Descriptive statistics · CoC / PLE (2026)" data-ko="기술통계 · CoC / PLE (2026)">Descriptive statistics · CoC / PLE (2026)</title>
+<style>
+:root {
+  --bg: #ffffff; --fg: #1a1a1a; --muted: #666; --accent: #0366d6;
+  --line: #e5e5e5; --hi: #f7f7f7; --good: #17813c; --bad: #c53030;
+  --warn: #b68400; --panel: #f0f6ff; --callout: #fff9e6;
+}
+* { box-sizing: border-box; }
+body { font-family: Georgia, "Times New Roman", "Apple SD Gothic Neo", serif;
+       max-width: 860px; margin: 0 auto; padding: 2em 1.2em 4em;
+       color: var(--fg); background: var(--bg); line-height: 1.7; font-size: 17px; }
+header { border-bottom: 2px solid var(--line); padding-bottom: 1.2em; margin-bottom: 2em; }
+header .proj { color: var(--muted); font-size: 0.85em; letter-spacing: 0.04em; text-transform: uppercase; }
+h1 { margin: 0.3em 0 0.2em; font-size: 2em; letter-spacing: -0.01em; line-height: 1.25; }
+h2 { margin-top: 2.5em; padding-bottom: 0.2em; border-bottom: 1px solid var(--line); font-size: 1.5em; }
+h3 { margin-top: 2em; font-size: 1.2em; color: #222; }
+h4 { margin-top: 1.5em; font-size: 1.02em; color: #333; }
+p, li { line-height: 1.7; }
+.lead { color: var(--muted); font-size: 1.05em; font-style: italic; }
+nav.main { display: flex; gap: 1.2em; margin: 0.6em 0 0; flex-wrap: wrap;
+           font-family: -apple-system, system-ui, sans-serif; font-size: 0.92em; }
+nav.main a { color: var(--accent); text-decoration: none; }
+nav.main a.active { color: var(--fg); font-weight: 600; }
+nav.main a:hover { text-decoration: underline; }
+table { width: 100%; border-collapse: collapse; margin: 1.2em 0; font-size: 0.93em;
+        font-family: -apple-system, system-ui, sans-serif; }
+th, td { padding: 7px 11px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { background: var(--hi); font-weight: 600; }
+tr:hover { background: #fafafa; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.badge { display: inline-block; padding: 1px 8px; border-radius: 10px;
+         font-size: 0.8em; background: var(--hi); color: var(--muted);
+         font-family: -apple-system, system-ui, sans-serif; }
+.badge.good { background: #eafaef; color: var(--good); }
+.badge.warn { background: #fff7e0; color: var(--warn); }
+.badge.bad { background: #fde8e8; color: var(--bad); }
+.stat { display: inline-block; background: var(--hi); padding: 0.9em 1.3em;
+        border-radius: 6px; margin: 0.3em 0.3em 0.3em 0; min-width: 200px;
+        font-family: -apple-system, system-ui, sans-serif; }
+.stat .label { color: var(--muted); font-size: 0.82em; margin-bottom: 0.3em; }
+.stat .value { font-size: 1.7em; font-weight: 600; color: var(--fg); }
+code { background: #f2f2f2; padding: 1px 5px; border-radius: 3px;
+       font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.88em; }
+blockquote { background: var(--callout); border-left: 4px solid #c8a030;
+             padding: 0.8em 1.2em; margin: 1.4em 0; border-radius: 0 6px 6px 0; }
+.callout { background: var(--panel); border-left: 4px solid var(--accent);
+           padding: 0.8em 1.2em; margin: 1.4em 0; border-radius: 0 6px 6px 0; }
+.callout-title { font-weight: 600; color: var(--accent); margin-bottom: 0.4em;
+                 font-family: -apple-system, system-ui, sans-serif; font-size: 0.95em; }
+footer { margin-top: 5em; padding-top: 1.4em; border-top: 1px solid var(--line);
+         color: var(--muted); font-size: 0.85em;
+         font-family: -apple-system, system-ui, sans-serif; }
+.card-row { display: flex; gap: 1em; flex-wrap: wrap; margin: 1em 0;
+            font-family: -apple-system, system-ui, sans-serif; }
+.card { flex: 1; min-width: 260px; background: var(--hi); padding: 1.2em;
+        border-radius: 6px; border: 1px solid var(--line); }
+.hub-card { display: block; background: white; border: 1px solid var(--line);
+            border-radius: 8px; padding: 1.3em 1.4em; text-decoration: none;
+            color: inherit; transition: all 0.2s ease; margin-bottom: 0.8em; }
+.hub-card:hover { border-color: var(--accent); box-shadow: 0 2px 10px rgba(3,102,214,0.08);
+                  transform: translateY(-1px); }
+.hub-card h3 { margin: 0 0 0.4em; color: var(--accent); font-family: Georgia, serif; font-size: 1.15em; }
+.hub-card p { margin: 0.3em 0 0; color: var(--fg); font-size: 0.95em; line-height: 1.55; }
+.hub-grid { display: grid; gap: 0.9em; grid-template-columns: 1fr; margin: 1em 0 2em; }
+@media (min-width: 700px) { .hub-grid { grid-template-columns: 1fr 1fr; } }
+.findings-box { background: #f0faf3; border-left: 4px solid var(--good);
+                padding: 1em 1.3em; border-radius: 0 8px 8px 0; margin: 1.3em 0; }
+.findings-box h3 { margin-top: 0; color: var(--good); font-family: Georgia, serif; }
+.findings-box ul { margin: 0.4em 0 0; padding-left: 1.3em; }
+.step-list { list-style: none; padding-left: 0; counter-reset: step; }
+.step-list > li { counter-increment: step; position: relative; padding: 0.6em 0 0.6em 3em; }
+.step-list > li::before { content: counter(step); position: absolute; left: 0; top: 0.7em;
+                          width: 2em; height: 2em; border-radius: 50%;
+                          background: var(--accent); color: white;
+                          text-align: center; line-height: 2em; font-weight: 600;
+                          font-family: -apple-system, sans-serif; font-size: 0.9em; }
+.bar { display: inline-block; height: 0.8em; background: var(--accent); border-radius: 2px;
+       vertical-align: middle; }
+.bar.floor { background: var(--bad); } .bar.ceil { background: var(--warn); }
+.barwrap { font-family: -apple-system, system-ui, sans-serif; font-size: 0.88em; }
+.barwrap .lab { display: inline-block; width: 12.5em; }
+.barwrap .val { color: var(--muted); margin-left: 0.5em; }
+/* language toggle */
+.langbar { position: sticky; top: 0; z-index: 20; display: flex; justify-content: flex-end;
+           gap: 0.4em; padding: 0.5em 0; margin: -1em 0 0.5em; background: var(--bg);
+           font-family: -apple-system, system-ui, sans-serif; }
+.langbar button { border: 1px solid var(--line); background: white; color: var(--muted);
+                  padding: 3px 12px; border-radius: 14px; cursor: pointer; font-size: 0.85em; }
+.langbar button.active { background: var(--accent); color: white; border-color: var(--accent); font-weight: 600; }
+.lang { display: none; }
+html[data-lang="en"] .lang.en { display: block; }
+html[data-lang="ko"] .lang.ko { display: block; }
+</style>
+</head><body>
+<div class="langbar">
+  <button data-lang="en">EN</button>
+  <button data-lang="ko">한국어</button>
+</div>
+
+<div class="lang en">
+<header>
+  <div class="proj">CoC Criminalization &amp; PLE Engagement · Lee, Kim &amp; An, UCF</div>
+  <h1>Descriptive statistics</h1>
+  <p class="lead">Verified distributions for the analysis sample of 650 CoC-years.</p>
+  <nav class="main"><a class="" href="index.html">Overview</a><a class="" href="data.html">Data &amp; pipeline</a><a class="" href="measurement.html">Measurement</a><a class="active" href="descriptive.html">Descriptive stats</a><a class="" href="pilot.html">PLE coding</a><a class="" href="results.html">Results</a><a class="" href="status.html">Status</a></nav>
+</header>
+
+<p class="lead">All figures below are read straight from the R pipeline outputs
+(<code>03_descriptives.xlsx</code> and <code>04_descriptives_final.xlsx</code>);
+n varies by item because of missingness.</p>
+
+<h2>The dependent variable rose each year</h2>
+<p>Reported anti-criminalization activity climbs across the FY2022–FY2024
+window.</p>
+<table><tr><th>Year</th><th class="num">n</th><th class="num">Mean</th><th class="num">SD</th><th class="num">Median</th></tr><tr><td>FY2022</td><td class="num">146</td><td class="num">0.706</td><td class="num">0.275</td><td class="num">0.667</td></tr><tr><td>FY2023</td><td class="num">190</td><td class="num">0.731</td><td class="num">0.263</td><td class="num">0.667</td></tr><tr><td>FY2024</td><td class="num">298</td><td class="num">0.802</td><td class="num">0.269</td><td class="num">1</td></tr></table>
+<div class="callout">
+  <div class="callout-title">Descriptive only — not a causal estimate</div>
+  The year-over-year rise (0.706&nbsp;&rarr;&nbsp;0.731&nbsp;&rarr;&nbsp;0.802) is
+  a raw trend. Isolating a causal effect from a pre-existing trend would require a
+  design not yet estimated on this panel.
+</div>
+
+<h2>Analysis variables — descriptives</h2>
+<p>Every variable in the analysis dataset, grouped by its role in the model, with
+its meaning. Figures are read straight from the R pipeline's output
+(<code>04_descriptives_final.xlsx</code>); n varies by item because of missingness.</p>
+<table><tr><th>Variable</th><th>Meaning</th><th class="num">n</th><th class="num">Mean</th><th class="num">SD</th><th class="num">Median</th><th class="num">Max</th></tr><tr><td colspan="7" style="background:var(--panel);font-weight:600;font-family:Georgia,serif">Dependent variable — anti-criminalization activity</td></tr><tr><td><code>crim_activity_index</code></td><td>Anti-criminalization activity index, share of 1D-4 cells (0–1)</td><td class="num">634</td><td class="num">0.759</td><td class="num">0.271</td><td class="num">0.833</td><td class="num">1</td></tr><tr><td><code>dv_policymakers</code></td><td>Engaged / educated policymakers on criminalization</td><td class="num">634</td><td class="num">0.941</td><td class="num">0.201</td><td class="num">1</td><td class="num">1</td></tr><tr><td><code>dv_prevent_crim</code></td><td>Implemented laws / policies to prevent criminalization</td><td class="num">634</td><td class="num">0.577</td><td class="num">0.454</td><td class="num">0.667</td><td class="num">1</td></tr><tr><td colspan="7" style="background:var(--panel);font-weight:600;font-family:Georgia,serif">Independent variable — PLE engagement (Stage-3 coded indices)</td></tr><tr><td><code>ple_institution_null0</code></td><td>Overall PLE-engagement index — mean of the 3 domains (0–1)</td><td class="num">620</td><td class="num">0.537</td><td class="num">0.174</td><td class="num">0.544</td><td class="num">0.917</td></tr><tr><td><code>ple_umbrella_null0</code></td><td>Structural inclusion — boards, committees, compensation, policy, decision-making</td><td class="num">620</td><td class="num">0.519</td><td class="num">0.272</td><td class="num">0.500</td><td class="num">1</td></tr><tr><td><code>ple_prof_dev_null0</code></td><td>Professional development — paid roles, training, advancement</td><td class="num">620</td><td class="num">0.584</td><td class="num">0.254</td><td class="num">0.600</td><td class="num">1</td></tr><tr><td><code>ple_feedback_null0</code></td><td>Feedback — formal mechanism, acts on input, barriers, closing the loop</td><td class="num">620</td><td class="num">0.508</td><td class="num">0.184</td><td class="num">0.500</td><td class="num">1</td></tr><tr><td colspan="7" style="background:var(--panel);font-weight:600;font-family:Georgia,serif">Independent variable — PLE engagement (count proxies)</td></tr><tr><td><code>ple_n_years</code></td><td>Count of PLE involved (1D-10a items)</td><td class="num">634</td><td class="num">41.402</td><td class="num">68.052</td><td class="num">23</td><td class="num">797</td></tr><tr><td><code>log_ple_years</code></td><td>log(1 + PLE count) — used in models</td><td class="num">634</td><td class="num">3.052</td><td class="num">1.224</td><td class="num">3.178</td><td class="num">6.682</td></tr><tr><td><code>ple_n_unsheltered</code></td><td>Count of unsheltered PLE involved</td><td class="num">634</td><td class="num">19.971</td><td class="num">31.906</td><td class="num">11</td><td class="num">291</td></tr><tr><td><code>log_ple_unsheltered</code></td><td>log(1 + unsheltered PLE count)</td><td class="num">634</td><td class="num">2.343</td><td class="num">1.232</td><td class="num">2.485</td><td class="num">5.677</td></tr><tr><td colspan="7" style="background:var(--panel);font-weight:600;font-family:Georgia,serif">Moderator — CoC leadership</td></tr><tr><td><code>nonprofit_led</code></td><td>Nonprofit-led CoC (1) vs government / public-led (0)</td><td class="num">639</td><td class="num">0.516</td><td class="num">0.500</td><td class="num">1</td><td class="num">1</td></tr><tr><td colspan="7" style="background:var(--panel);font-weight:600;font-family:Georgia,serif">Control — CoC size (HUD PIT)</td></tr><tr><td><code>pit_overall</code></td><td>HUD Point-in-Time total homeless count</td><td class="num">647</td><td class="num">2,046</td><td class="num">7,683</td><td class="num">737</td><td class="num">140,134</td></tr><tr><td><code>log_pit_overall</code></td><td>log(1 + PIT count) — used in models</td><td class="num">647</td><td class="num">6.712</td><td class="num">1.144</td><td class="num">6.604</td><td class="num">11.850</td></tr></table>
+
+<h2>By leadership type</h2>
+<p>Anti-criminalization activity is essentially identical across nonprofit-led and
+government-led CoC-years — a first, descriptive look at H1.</p>
+<table><tr><th>Leadership</th><th class="num">CoC-years</th><th class="num">Mean DV</th><th class="num">Mean PLE index</th><th class="num">Mean log(PIT)</th></tr><tr><td>Government-led (<code>0</code>)</td><td class="num">309</td><td class="num">0.762</td><td class="num">0.544</td><td class="num">6.900</td></tr><tr><td>Nonprofit-led (<code>1</code>)</td><td class="num">330</td><td class="num">0.762</td><td class="num">0.531</td><td class="num">6.552</td></tr></table>
+<p class="lead">DV means are nearly identical across nonprofit-led and
+government-led CoC-years — foreshadowing a near-zero leadership–DV correlation.</p>
+
+<h2>Correlations among analysis variables</h2>
+<table><tr><th></th><th class="num">DV</th><th class="num">PLEidx</th><th class="num">logPLE</th><th class="num">NPled</th><th class="num">logPIT</th></tr><tr><td><code>crim_activity_index</code></td><td class="num">—</td><td class="num">0.284</td><td class="num">0.271</td><td class="num">0.001</td><td class="num">0.208</td></tr><tr><td><code>ple_institution_null0</code></td><td class="num">0.284</td><td class="num">—</td><td class="num">0.394</td><td class="num">-0.038</td><td class="num">0.349</td></tr><tr><td><code>log_ple_years</code></td><td class="num">0.271</td><td class="num">0.394</td><td class="num">—</td><td class="num">-0.022</td><td class="num">0.387</td></tr><tr><td><code>nonprofit_led</code></td><td class="num">0.001</td><td class="num">-0.038</td><td class="num">-0.022</td><td class="num">—</td><td class="num">-0.151</td></tr><tr><td><code>log_pit_overall</code></td><td class="num">0.208</td><td class="num">0.349</td><td class="num">0.387</td><td class="num">-0.151</td><td class="num">—</td></tr></table>
+<p class="lead">The DV correlates modestly with the coded PLE-engagement index
+(<code>PLEidx</code>) and with CoC size, and essentially zero with leadership
+(see the table). The coded index and the count proxy (<code>logPLE</code>) move
+together only moderately — related but distinct facets of engagement — so models
+use one measure at a time.</p>
+
+<footer><strong>2026 rebuild.</strong> Standalone status site built locally from the August&nbsp;2026 R&nbsp;pipeline outputs (<code>coc_panel</code>, <code>coc_analysis_vars</code>, <code>03_descriptives</code>, <code>coc_leadership</code>, <code>pilot_coding_review</code>). Every figure verified against source on 2026-08-19. Separate from the deployed <code>docs/</code> site. Authors: Kyungmin&nbsp;Lee, Hanvit&nbsp;Kim &amp; Seongho&nbsp;An (University of Central Florida).</footer>
+</div>
+
+<div class="lang ko">
+<header>
+  <div class="proj">CoC 범죄화 &amp; PLE 참여 · Lee, Kim &amp; An, UCF</div>
+  <h1>기술통계</h1>
+  <p class="lead">650 CoC-연도 분석 표본의 검증된 분포.</p>
+  <nav class="main"><a class="" href="index.html">개요</a><a class="" href="data.html">데이터 · 파이프라인</a><a class="" href="measurement.html">측정</a><a class="active" href="descriptive.html">기술통계</a><a class="" href="pilot.html">PLE 코딩</a><a class="" href="results.html">결과</a><a class="" href="status.html">진행상황</a></nav>
+</header>
+
+<p class="lead">아래 모든 수치는 R 파이프라인 출력
+(<code>03_descriptives.xlsx</code>·<code>04_descriptives_final.xlsx</code>)에서
+직접 읽습니다; 결측으로 항목별 n이 다릅니다.</p>
+
+<h2>종속변수는 매년 상승했다</h2>
+<p>보고된 반범죄화 활동은 FY2022–FY2024 구간에서 상승합니다.</p>
+<table><tr><th>연도</th><th class="num">n</th><th class="num">평균</th><th class="num">SD</th><th class="num">중앙값</th></tr><tr><td>FY2022</td><td class="num">146</td><td class="num">0.706</td><td class="num">0.275</td><td class="num">0.667</td></tr><tr><td>FY2023</td><td class="num">190</td><td class="num">0.731</td><td class="num">0.263</td><td class="num">0.667</td></tr><tr><td>FY2024</td><td class="num">298</td><td class="num">0.802</td><td class="num">0.269</td><td class="num">1</td></tr></table>
+<div class="callout">
+  <div class="callout-title">기술통계일 뿐 — 인과 추정치가 아님</div>
+  연도별 상승(0.706&nbsp;&rarr;&nbsp;0.731&nbsp;&rarr;&nbsp;0.802)은 원자료 추세입니다.
+  인과 효과를 기존 추세와 분리하려면 이 패널에서 아직 추정되지 않은 설계가
+  필요합니다.
+</div>
+
+<h2>분석 변수 — 기술통계</h2>
+<p>분석 데이터셋의 모든 변수를 모델 역할별로 묶고 의미를 함께 표기했습니다. 수치는 R
+파이프라인 출력(<code>04_descriptives_final.xlsx</code>)에서 직접 읽습니다; 결측으로
+항목별 n이 다릅니다.</p>
+<table><tr><th>변수</th><th>의미</th><th class="num">n</th><th class="num">평균</th><th class="num">SD</th><th class="num">중앙값</th><th class="num">Max</th></tr><tr><td colspan="7" style="background:var(--panel);font-weight:600;font-family:Georgia,serif">종속변수 — 반범죄화 활동</td></tr><tr><td><code>crim_activity_index</code></td><td>반범죄화 활동 지수, 1D-4 셀 중 Yes 비율 (0–1)</td><td class="num">634</td><td class="num">0.759</td><td class="num">0.271</td><td class="num">0.833</td><td class="num">1</td></tr><tr><td><code>dv_policymakers</code></td><td>범죄화 관련 정책결정자 참여·교육</td><td class="num">634</td><td class="num">0.941</td><td class="num">0.201</td><td class="num">1</td><td class="num">1</td></tr><tr><td><code>dv_prevent_crim</code></td><td>범죄화 예방 법·정책 시행</td><td class="num">634</td><td class="num">0.577</td><td class="num">0.454</td><td class="num">0.667</td><td class="num">1</td></tr><tr><td colspan="7" style="background:var(--panel);font-weight:600;font-family:Georgia,serif">독립변수 — PLE 참여 (Stage-3 코딩 지수)</td></tr><tr><td><code>ple_institution_null0</code></td><td>PLE 참여 종합 지수 — 3개 도메인 평균 (0–1)</td><td class="num">620</td><td class="num">0.537</td><td class="num">0.174</td><td class="num">0.544</td><td class="num">0.917</td></tr><tr><td><code>ple_umbrella_null0</code></td><td>구조적 포함 — 이사회·위원회·보상·정책·의사결정</td><td class="num">620</td><td class="num">0.519</td><td class="num">0.272</td><td class="num">0.500</td><td class="num">1</td></tr><tr><td><code>ple_prof_dev_null0</code></td><td>전문성 개발 — 유급직·훈련·경력발전</td><td class="num">620</td><td class="num">0.584</td><td class="num">0.254</td><td class="num">0.600</td><td class="num">1</td></tr><tr><td><code>ple_feedback_null0</code></td><td>환류 — 공식 기제·반영·장벽 해소·순환 종결</td><td class="num">620</td><td class="num">0.508</td><td class="num">0.184</td><td class="num">0.500</td><td class="num">1</td></tr><tr><td colspan="7" style="background:var(--panel);font-weight:600;font-family:Georgia,serif">독립변수 — PLE 참여 (카운트 프록시)</td></tr><tr><td><code>ple_n_years</code></td><td>참여 PLE 인원 수 (1D-10a)</td><td class="num">634</td><td class="num">41.402</td><td class="num">68.052</td><td class="num">23</td><td class="num">797</td></tr><tr><td><code>log_ple_years</code></td><td>log(1 + PLE 수) — 모델 투입</td><td class="num">634</td><td class="num">3.052</td><td class="num">1.224</td><td class="num">3.178</td><td class="num">6.682</td></tr><tr><td><code>ple_n_unsheltered</code></td><td>미쉼터 참여 PLE 인원 수</td><td class="num">634</td><td class="num">19.971</td><td class="num">31.906</td><td class="num">11</td><td class="num">291</td></tr><tr><td><code>log_ple_unsheltered</code></td><td>log(1 + 미쉼터 PLE 수)</td><td class="num">634</td><td class="num">2.343</td><td class="num">1.232</td><td class="num">2.485</td><td class="num">5.677</td></tr><tr><td colspan="7" style="background:var(--panel);font-weight:600;font-family:Georgia,serif">조절변수 — CoC 리더십</td></tr><tr><td><code>nonprofit_led</code></td><td>비영리 주도 CoC(1) vs 정부·공공 주도(0)</td><td class="num">639</td><td class="num">0.516</td><td class="num">0.500</td><td class="num">1</td><td class="num">1</td></tr><tr><td colspan="7" style="background:var(--panel);font-weight:600;font-family:Georgia,serif">통제변수 — CoC 규모 (HUD PIT)</td></tr><tr><td><code>pit_overall</code></td><td>HUD Point-in-Time 전체 노숙 카운트</td><td class="num">647</td><td class="num">2,046</td><td class="num">7,683</td><td class="num">737</td><td class="num">140,134</td></tr><tr><td><code>log_pit_overall</code></td><td>log(1 + PIT) — 모델 투입</td><td class="num">647</td><td class="num">6.712</td><td class="num">1.144</td><td class="num">6.604</td><td class="num">11.850</td></tr></table>
+
+<h2>리더십 유형별</h2>
+<p>반범죄화 활동은 비영리 주도와 정부 주도 CoC-연도에서 사실상 동일합니다 — H1에 대한
+첫 기술적 관찰입니다.</p>
+<table><tr><th>리더십</th><th class="num">CoC-연도</th><th class="num">평균 DV</th><th class="num">평균 PLE 지수</th><th class="num">평균 log(PIT)</th></tr><tr><td>정부 주도 (<code>0</code>)</td><td class="num">309</td><td class="num">0.762</td><td class="num">0.544</td><td class="num">6.900</td></tr><tr><td>비영리 주도 (<code>1</code>)</td><td class="num">330</td><td class="num">0.762</td><td class="num">0.531</td><td class="num">6.552</td></tr></table>
+<p class="lead">DV 평균이 비영리·정부 주도 CoC-연도에서 거의 동일 — 리더십–DV 상관이
+거의 0임을 예고합니다.</p>
+
+<h2>분석 변수 간 상관</h2>
+<table><tr><th></th><th class="num">DV</th><th class="num">PLEidx</th><th class="num">logPLE</th><th class="num">NPled</th><th class="num">logPIT</th></tr><tr><td><code>crim_activity_index</code></td><td class="num">—</td><td class="num">0.284</td><td class="num">0.271</td><td class="num">0.001</td><td class="num">0.208</td></tr><tr><td><code>ple_institution_null0</code></td><td class="num">0.284</td><td class="num">—</td><td class="num">0.394</td><td class="num">-0.038</td><td class="num">0.349</td></tr><tr><td><code>log_ple_years</code></td><td class="num">0.271</td><td class="num">0.394</td><td class="num">—</td><td class="num">-0.022</td><td class="num">0.387</td></tr><tr><td><code>nonprofit_led</code></td><td class="num">0.001</td><td class="num">-0.038</td><td class="num">-0.022</td><td class="num">—</td><td class="num">-0.151</td></tr><tr><td><code>log_pit_overall</code></td><td class="num">0.208</td><td class="num">0.349</td><td class="num">0.387</td><td class="num">-0.151</td><td class="num">—</td></tr></table>
+<p class="lead">DV는 코딩 PLE 참여 지수(<code>PLEidx</code>) 및 CoC 규모와 완만하게
+상관하고, 리더십과는 거의 0입니다(표 참고). 코딩 지수와 카운트 프록시
+(<code>logPLE</code>)는 중간 정도로만 함께 움직여 — 관련되지만 구별되는 참여 측면을
+포착하므로 모델에서는 한 번에 하나만 사용합니다.</p>
+
+<footer><strong>2026 리빌드.</strong> 2026년 8월 R 파이프라인 산출물(<code>coc_panel</code>, <code>coc_analysis_vars</code>, <code>03_descriptives</code>, <code>coc_leadership</code>, <code>pilot_coding_review</code>)에서 로컬로 생성한 독립 현황 사이트입니다. 모든 수치는 2026-08-19에 원본과 대조해 검증했습니다. 배포 중인 <code>docs/</code> 사이트와는 별개입니다. 저자: Kyungmin&nbsp;Lee, Hanvit&nbsp;Kim &amp; Seongho&nbsp;An (University of Central Florida).</footer>
+</div>
+
+<script>
+(function(){
+  var KEY='coc_lang';
+  function set(l){
+    document.documentElement.setAttribute('data-lang',l);
+    try{localStorage.setItem(KEY,l);}catch(e){}
+    document.querySelectorAll('.langbar button').forEach(function(b){
+      b.classList.toggle('active', b.dataset.lang===l);
+    });
+    var t=document.querySelector('title[data-'+l+']');
+    var el=document.querySelector('title');
+    if(el){el.textContent=el.getAttribute('data-'+l)||el.textContent;}
+  }
+  var saved='en';
+  try{saved=localStorage.getItem(KEY)||'en';}catch(e){}
+  document.addEventListener('DOMContentLoaded',function(){
+    set(saved);
+    document.querySelectorAll('.langbar button').forEach(function(b){
+      b.addEventListener('click',function(){set(b.dataset.lang);});
+    });
+  });
+  document.documentElement.setAttribute('data-lang',saved);
+})();
+</script>
+</body></html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Status &amp; next steps · CoC / PLE (2026)" data-ko="진행상황 및 다음 단계 · CoC / PLE (2026)">Status &amp; next steps · CoC / PLE (2026)</title>
+<style>
+:root {
+  --bg: #ffffff; --fg: #1a1a1a; --muted: #666; --accent: #0366d6;
+  --line: #e5e5e5; --hi: #f7f7f7; --good: #17813c; --bad: #c53030;
+  --warn: #b68400; --panel: #f0f6ff; --callout: #fff9e6;
+}
+* { box-sizing: border-box; }
+body { font-family: Georgia, "Times New Roman", "Apple SD Gothic Neo", serif;
+       max-width: 860px; margin: 0 auto; padding: 2em 1.2em 4em;
+       color: var(--fg); background: var(--bg); line-height: 1.7; font-size: 17px; }
+header { border-bottom: 2px solid var(--line); padding-bottom: 1.2em; margin-bottom: 2em; }
+header .proj { color: var(--muted); font-size: 0.85em; letter-spacing: 0.04em; text-transform: uppercase; }
+h1 { margin: 0.3em 0 0.2em; font-size: 2em; letter-spacing: -0.01em; line-height: 1.25; }
+h2 { margin-top: 2.5em; padding-bottom: 0.2em; border-bottom: 1px solid var(--line); font-size: 1.5em; }
+h3 { margin-top: 2em; font-size: 1.2em; color: #222; }
+h4 { margin-top: 1.5em; font-size: 1.02em; color: #333; }
+p, li { line-height: 1.7; }
+.lead { color: var(--muted); font-size: 1.05em; font-style: italic; }
+nav.main { display: flex; gap: 1.2em; margin: 0.6em 0 0; flex-wrap: wrap;
+           font-family: -apple-system, system-ui, sans-serif; font-size: 0.92em; }
+nav.main a { color: var(--accent); text-decoration: none; }
+nav.main a.active { color: var(--fg); font-weight: 600; }
+nav.main a:hover { text-decoration: underline; }
+table { width: 100%; border-collapse: collapse; margin: 1.2em 0; font-size: 0.93em;
+        font-family: -apple-system, system-ui, sans-serif; }
+th, td { padding: 7px 11px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { background: var(--hi); font-weight: 600; }
+tr:hover { background: #fafafa; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.badge { display: inline-block; padding: 1px 8px; border-radius: 10px;
+         font-size: 0.8em; background: var(--hi); color: var(--muted);
+         font-family: -apple-system, system-ui, sans-serif; }
+.badge.good { background: #eafaef; color: var(--good); }
+.badge.warn { background: #fff7e0; color: var(--warn); }
+.badge.bad { background: #fde8e8; color: var(--bad); }
+.stat { display: inline-block; background: var(--hi); padding: 0.9em 1.3em;
+        border-radius: 6px; margin: 0.3em 0.3em 0.3em 0; min-width: 200px;
+        font-family: -apple-system, system-ui, sans-serif; }
+.stat .label { color: var(--muted); font-size: 0.82em; margin-bottom: 0.3em; }
+.stat .value { font-size: 1.7em; font-weight: 600; color: var(--fg); }
+code { background: #f2f2f2; padding: 1px 5px; border-radius: 3px;
+       font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.88em; }
+blockquote { background: var(--callout); border-left: 4px solid #c8a030;
+             padding: 0.8em 1.2em; margin: 1.4em 0; border-radius: 0 6px 6px 0; }
+.callout { background: var(--panel); border-left: 4px solid var(--accent);
+           padding: 0.8em 1.2em; margin: 1.4em 0; border-radius: 0 6px 6px 0; }
+.callout-title { font-weight: 600; color: var(--accent); margin-bottom: 0.4em;
+                 font-family: -apple-system, system-ui, sans-serif; font-size: 0.95em; }
+footer { margin-top: 5em; padding-top: 1.4em; border-top: 1px solid var(--line);
+         color: var(--muted); font-size: 0.85em;
+         font-family: -apple-system, system-ui, sans-serif; }
+.card-row { display: flex; gap: 1em; flex-wrap: wrap; margin: 1em 0;
+            font-family: -apple-system, system-ui, sans-serif; }
+.card { flex: 1; min-width: 260px; background: var(--hi); padding: 1.2em;
+        border-radius: 6px; border: 1px solid var(--line); }
+.hub-card { display: block; background: white; border: 1px solid var(--line);
+            border-radius: 8px; padding: 1.3em 1.4em; text-decoration: none;
+            color: inherit; transition: all 0.2s ease; margin-bottom: 0.8em; }
+.hub-card:hover { border-color: var(--accent); box-shadow: 0 2px 10px rgba(3,102,214,0.08);
+                  transform: translateY(-1px); }
+.hub-card h3 { margin: 0 0 0.4em; color: var(--accent); font-family: Georgia, serif; font-size: 1.15em; }
+.hub-card p { margin: 0.3em 0 0; color: var(--fg); font-size: 0.95em; line-height: 1.55; }
+.hub-grid { display: grid; gap: 0.9em; grid-template-columns: 1fr; margin: 1em 0 2em; }
+@media (min-width: 700px) { .hub-grid { grid-template-columns: 1fr 1fr; } }
+.findings-box { background: #f0faf3; border-left: 4px solid var(--good);
+                padding: 1em 1.3em; border-radius: 0 8px 8px 0; margin: 1.3em 0; }
+.findings-box h3 { margin-top: 0; color: var(--good); font-family: Georgia, serif; }
+.findings-box ul { margin: 0.4em 0 0; padding-left: 1.3em; }
+.step-list { list-style: none; padding-left: 0; counter-reset: step; }
+.step-list > li { counter-increment: step; position: relative; padding: 0.6em 0 0.6em 3em; }
+.step-list > li::before { content: counter(step); position: absolute; left: 0; top: 0.7em;
+                          width: 2em; height: 2em; border-radius: 50%;
+                          background: var(--accent); color: white;
+                          text-align: center; line-height: 2em; font-weight: 600;
+                          font-family: -apple-system, sans-serif; font-size: 0.9em; }
+.bar { display: inline-block; height: 0.8em; background: var(--accent); border-radius: 2px;
+       vertical-align: middle; }
+.bar.floor { background: var(--bad); } .bar.ceil { background: var(--warn); }
+.barwrap { font-family: -apple-system, system-ui, sans-serif; font-size: 0.88em; }
+.barwrap .lab { display: inline-block; width: 12.5em; }
+.barwrap .val { color: var(--muted); margin-left: 0.5em; }
+/* language toggle */
+.langbar { position: sticky; top: 0; z-index: 20; display: flex; justify-content: flex-end;
+           gap: 0.4em; padding: 0.5em 0; margin: -1em 0 0.5em; background: var(--bg);
+           font-family: -apple-system, system-ui, sans-serif; }
+.langbar button { border: 1px solid var(--line); background: white; color: var(--muted);
+                  padding: 3px 12px; border-radius: 14px; cursor: pointer; font-size: 0.85em; }
+.langbar button.active { background: var(--accent); color: white; border-color: var(--accent); font-weight: 600; }
+.lang { display: none; }
+html[data-lang="en"] .lang.en { display: block; }
+html[data-lang="ko"] .lang.ko { display: block; }
+</style>
+</head><body>
+<div class="langbar">
+  <button data-lang="en">EN</button>
+  <button data-lang="ko">한국어</button>
+</div>
+
+<div class="lang en">
+<header>
+  <div class="proj">CoC Criminalization &amp; PLE Engagement · Lee, Kim &amp; An, UCF</div>
+  <h1>Status &amp; next steps</h1>
+  <p class="lead">What the August 2026 session shipped, and what remains.</p>
+  <nav class="main"><a class="" href="index.html">Overview</a><a class="" href="data.html">Data &amp; pipeline</a><a class="" href="measurement.html">Measurement</a><a class="" href="descriptive.html">Descriptive stats</a><a class="" href="pilot.html">PLE coding</a><a class="" href="results.html">Results</a><a class="active" href="status.html">Status</a></nav>
+</header>
+
+<h2>Done</h2>
+<table><tr><th>Item</th><th>Status</th></tr><tr><td>Manual remediation coding merged (383 cells, 24 CoC-years, audit-logged)</td><td><span class="badge good">done</span></td></tr><tr><td>FY2022 1D-11a crosswalk verified and applied</td><td><span class="badge good">done</span></td></tr><tr><td>Analysis panel built in R (650 &times; 320)</td><td><span class="badge good">done</span></td></tr><tr><td>DV, PLE-engagement counts, leadership, PIT size control constructed</td><td><span class="badge good">done</span></td></tr><tr><td>Stage 3 coding frame piloted (24 cases, Opus) and validated</td><td><span class="badge good">done</span></td></tr><tr><td>Full-corpus PLE coding — 620 CoC-years (Sonnet, strict definitions)</td><td><span class="badge good">done</span></td></tr><tr><td>PLE codes joined to the panel (script 04 &rarr; coc_analysis_final)</td><td><span class="badge good">done</span></td></tr><tr><td>Moderation model estimated on coc_analysis_final</td><td><span class="badge">pending</span></td></tr></table>
+
+<h2>Open items</h2>
+<ol class="step-list">
+  <li><strong>Estimate the moderation model.</strong> Run
+  <code>crim_activity_index ~ ple_institution_null0 * nonprofit_led + log_pit_overall
+  | coc_id + year</code> on <code>coc_analysis_final</code> (raw
+  cor(DV, PLE index) = 0.284 is the descriptive signal).</li>
+  <li><strong>Coauthor sign-off on the coding frame.</strong> Confirm the ceiling
+  indicators (<code>mechanism_formal</code>, <code>training_pipeline</code>) and
+  the near-floor <code>closes_the_loop</code>; the
+  <code>addresses_barriers</code> definition is already tightened.</li>
+  <li><strong>Resolve the flagged rows.</strong> The three unmatched PIT rows
+  (<code>MA-519</code> &times;2, <code>MD-509</code> 2022) and the 18 leadership
+  <code>needs_review</code> CoCs.</li>
+</ol>
+
+<div class="callout">
+  <div class="callout-title">A note on this site vs the deployed one</div>
+  This 2026 rebuild is a standalone status page built from the August R outputs.
+  The live <code>docs/</code> site (built by
+  <code>data_pipeline/build_site.py</code>) still reflects the earlier
+  Python-pipeline analysis, including regression results this rebuild does not yet
+  carry. The two are intentionally kept separate until the moderation model is run.
+</div>
+
+<footer><strong>2026 rebuild.</strong> Standalone status site built locally from the August&nbsp;2026 R&nbsp;pipeline outputs (<code>coc_panel</code>, <code>coc_analysis_vars</code>, <code>03_descriptives</code>, <code>coc_leadership</code>, <code>pilot_coding_review</code>). Every figure verified against source on 2026-08-19. Separate from the deployed <code>docs/</code> site. Authors: Kyungmin&nbsp;Lee, Hanvit&nbsp;Kim &amp; Seongho&nbsp;An (University of Central Florida).</footer>
+</div>
+
+<div class="lang ko">
+<header>
+  <div class="proj">CoC 범죄화 &amp; PLE 참여 · Lee, Kim &amp; An, UCF</div>
+  <h1>진행상황 및 다음 단계</h1>
+  <p class="lead">2026년 8월 세션이 완료한 것과 남은 것.</p>
+  <nav class="main"><a class="" href="index.html">개요</a><a class="" href="data.html">데이터 · 파이프라인</a><a class="" href="measurement.html">측정</a><a class="" href="descriptive.html">기술통계</a><a class="" href="pilot.html">PLE 코딩</a><a class="" href="results.html">결과</a><a class="active" href="status.html">진행상황</a></nav>
+</header>
+
+<h2>완료</h2>
+<table><tr><th>항목</th><th>상태</th></tr><tr><td>수기 보강 코딩 병합 (383셀, 24 CoC-연도, 감사 로그)</td><td><span class="badge good">완료</span></td></tr><tr><td>FY2022 1D-11a 크로스워크 검증·적용</td><td><span class="badge good">완료</span></td></tr><tr><td>R로 분석 패널 구축 (650 &times; 320)</td><td><span class="badge good">완료</span></td></tr><tr><td>DV, PLE 참여 수, 리더십, PIT 규모 통제변수 구성</td><td><span class="badge good">완료</span></td></tr><tr><td>Stage 3 코딩 프레임 파일럿(24케이스, Opus)·검증</td><td><span class="badge good">완료</span></td></tr><tr><td>전체 코퍼스 PLE 코딩 — 620 CoC-연도 (Sonnet·엄격 정의)</td><td><span class="badge good">완료</span></td></tr><tr><td>PLE 코드를 패널에 결합 (script 04 &rarr; coc_analysis_final)</td><td><span class="badge good">완료</span></td></tr><tr><td>coc_analysis_final에서 모더레이션 모델 추정</td><td><span class="badge">대기</span></td></tr></table>
+
+<h2>미해결 항목</h2>
+<ol class="step-list">
+  <li><strong>모더레이션 모델 추정.</strong> <code>coc_analysis_final</code>에서
+  <code>crim_activity_index ~ ple_institution_null0 * nonprofit_led + log_pit_overall
+  | coc_id + year</code> 실행 (원자료 상관 cor(DV, PLE 지수) = 0.284가 예비 신호).</li>
+  <li><strong>공저자 코딩 프레임 승인.</strong> 천장 지표
+  (<code>mechanism_formal</code>, <code>training_pipeline</code>)와 준바닥
+  <code>closes_the_loop</code> 확인; <code>addresses_barriers</code> 정의는 이미
+  엄격히 확정됨.</li>
+  <li><strong>플래그된 행 해결.</strong> 미매칭 PIT 3행(<code>MA-519</code> &times;2,
+  <code>MD-509</code> 2022)과 리더십 <code>needs_review</code> CoC 18개.</li>
+</ol>
+
+<div class="callout">
+  <div class="callout-title">이 사이트 vs 배포 사이트</div>
+  이 2026 리빌드는 8월 R 산출물로 만든 독립 현황 페이지입니다. 라이브
+  <code>docs/</code> 사이트(<code>data_pipeline/build_site.py</code>로 생성)는 여전히
+  이전 Python 파이프라인 분석을 반영하며, 이 리빌드가 아직 담지 않은 회귀 결과를
+  포함합니다. 모더레이션 모델이 돌아갈 때까지 둘은 의도적으로 분리해 둡니다.
+</div>
+
+<footer><strong>2026 리빌드.</strong> 2026년 8월 R 파이프라인 산출물(<code>coc_panel</code>, <code>coc_analysis_vars</code>, <code>03_descriptives</code>, <code>coc_leadership</code>, <code>pilot_coding_review</code>)에서 로컬로 생성한 독립 현황 사이트입니다. 모든 수치는 2026-08-19에 원본과 대조해 검증했습니다. 배포 중인 <code>docs/</code> 사이트와는 별개입니다. 저자: Kyungmin&nbsp;Lee, Hanvit&nbsp;Kim &amp; Seongho&nbsp;An (University of Central Florida).</footer>
+</div>
+
+<script>
+(function(){
+  var KEY='coc_lang';
+  function set(l){
+    document.documentElement.setAttribute('data-lang',l);
+    try{localStorage.setItem(KEY,l);}catch(e){}
+    document.querySelectorAll('.langbar button').forEach(function(b){
+      b.classList.toggle('active', b.dataset.lang===l);
+    });
+    var t=document.querySelector('title[data-'+l+']');
+    var el=document.querySelector('title');
+    if(el){el.textContent=el.getAttribute('data-'+l)||el.textContent;}
+  }
+  var saved='en';
+  try{saved=localStorage.getItem(KEY)||'en';}catch(e){}
+  document.addEventListener('DOMContentLoaded',function(){
+    set(saved);
+    document.querySelectorAll('.langbar button').forEach(function(b){
+      b.addEventListener('click',function(){set(b.dataset.lang);});
+    });
+  });
+  document.documentElement.setAttribute('data-lang',saved);
+})();
+</script>
+</body></html>

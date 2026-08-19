@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="PLE narrative coding · CoC / PLE (2026)" data-ko="PLE 내러티브 코딩 · CoC / PLE (2026)">PLE narrative coding · CoC / PLE (2026)</title>
+<style>
+:root {
+  --bg: #ffffff; --fg: #1a1a1a; --muted: #666; --accent: #0366d6;
+  --line: #e5e5e5; --hi: #f7f7f7; --good: #17813c; --bad: #c53030;
+  --warn: #b68400; --panel: #f0f6ff; --callout: #fff9e6;
+}
+* { box-sizing: border-box; }
+body { font-family: Georgia, "Times New Roman", "Apple SD Gothic Neo", serif;
+       max-width: 860px; margin: 0 auto; padding: 2em 1.2em 4em;
+       color: var(--fg); background: var(--bg); line-height: 1.7; font-size: 17px; }
+header { border-bottom: 2px solid var(--line); padding-bottom: 1.2em; margin-bottom: 2em; }
+header .proj { color: var(--muted); font-size: 0.85em; letter-spacing: 0.04em; text-transform: uppercase; }
+h1 { margin: 0.3em 0 0.2em; font-size: 2em; letter-spacing: -0.01em; line-height: 1.25; }
+h2 { margin-top: 2.5em; padding-bottom: 0.2em; border-bottom: 1px solid var(--line); font-size: 1.5em; }
+h3 { margin-top: 2em; font-size: 1.2em; color: #222; }
+h4 { margin-top: 1.5em; font-size: 1.02em; color: #333; }
+p, li { line-height: 1.7; }
+.lead { color: var(--muted); font-size: 1.05em; font-style: italic; }
+nav.main { display: flex; gap: 1.2em; margin: 0.6em 0 0; flex-wrap: wrap;
+           font-family: -apple-system, system-ui, sans-serif; font-size: 0.92em; }
+nav.main a { color: var(--accent); text-decoration: none; }
+nav.main a.active { color: var(--fg); font-weight: 600; }
+nav.main a:hover { text-decoration: underline; }
+table { width: 100%; border-collapse: collapse; margin: 1.2em 0; font-size: 0.93em;
+        font-family: -apple-system, system-ui, sans-serif; }
+th, td { padding: 7px 11px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { background: var(--hi); font-weight: 600; }
+tr:hover { background: #fafafa; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.badge { display: inline-block; padding: 1px 8px; border-radius: 10px;
+         font-size: 0.8em; background: var(--hi); color: var(--muted);
+         font-family: -apple-system, system-ui, sans-serif; }
+.badge.good { background: #eafaef; color: var(--good); }
+.badge.warn { background: #fff7e0; color: var(--warn); }
+.badge.bad { background: #fde8e8; color: var(--bad); }
+.stat { display: inline-block; background: var(--hi); padding: 0.9em 1.3em;
+        border-radius: 6px; margin: 0.3em 0.3em 0.3em 0; min-width: 200px;
+        font-family: -apple-system, system-ui, sans-serif; }
+.stat .label { color: var(--muted); font-size: 0.82em; margin-bottom: 0.3em; }
+.stat .value { font-size: 1.7em; font-weight: 600; color: var(--fg); }
+code { background: #f2f2f2; padding: 1px 5px; border-radius: 3px;
+       font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.88em; }
+blockquote { background: var(--callout); border-left: 4px solid #c8a030;
+             padding: 0.8em 1.2em; margin: 1.4em 0; border-radius: 0 6px 6px 0; }
+.callout { background: var(--panel); border-left: 4px solid var(--accent);
+           padding: 0.8em 1.2em; margin: 1.4em 0; border-radius: 0 6px 6px 0; }
+.callout-title { font-weight: 600; color: var(--accent); margin-bottom: 0.4em;
+                 font-family: -apple-system, system-ui, sans-serif; font-size: 0.95em; }
+footer { margin-top: 5em; padding-top: 1.4em; border-top: 1px solid var(--line);
+         color: var(--muted); font-size: 0.85em;
+         font-family: -apple-system, system-ui, sans-serif; }
+.card-row { display: flex; gap: 1em; flex-wrap: wrap; margin: 1em 0;
+            font-family: -apple-system, system-ui, sans-serif; }
+.card { flex: 1; min-width: 260px; background: var(--hi); padding: 1.2em;
+        border-radius: 6px; border: 1px solid var(--line); }
+.hub-card { display: block; background: white; border: 1px solid var(--line);
+            border-radius: 8px; padding: 1.3em 1.4em; text-decoration: none;
+            color: inherit; transition: all 0.2s ease; margin-bottom: 0.8em; }
+.hub-card:hover { border-color: var(--accent); box-shadow: 0 2px 10px rgba(3,102,214,0.08);
+                  transform: translateY(-1px); }
+.hub-card h3 { margin: 0 0 0.4em; color: var(--accent); font-family: Georgia, serif; font-size: 1.15em; }
+.hub-card p { margin: 0.3em 0 0; color: var(--fg); font-size: 0.95em; line-height: 1.55; }
+.hub-grid { display: grid; gap: 0.9em; grid-template-columns: 1fr; margin: 1em 0 2em; }
+@media (min-width: 700px) { .hub-grid { grid-template-columns: 1fr 1fr; } }
+.findings-box { background: #f0faf3; border-left: 4px solid var(--good);
+                padding: 1em 1.3em; border-radius: 0 8px 8px 0; margin: 1.3em 0; }
+.findings-box h3 { margin-top: 0; color: var(--good); font-family: Georgia, serif; }
+.findings-box ul { margin: 0.4em 0 0; padding-left: 1.3em; }
+.step-list { list-style: none; padding-left: 0; counter-reset: step; }
+.step-list > li { counter-increment: step; position: relative; padding: 0.6em 0 0.6em 3em; }
+.step-list > li::before { content: counter(step); position: absolute; left: 0; top: 0.7em;
+                          width: 2em; height: 2em; border-radius: 50%;
+                          background: var(--accent); color: white;
+                          text-align: center; line-height: 2em; font-weight: 600;
+                          font-family: -apple-system, sans-serif; font-size: 0.9em; }
+.bar { display: inline-block; height: 0.8em; background: var(--accent); border-radius: 2px;
+       vertical-align: middle; }
+.bar.floor { background: var(--bad); } .bar.ceil { background: var(--warn); }
+.barwrap { font-family: -apple-system, system-ui, sans-serif; font-size: 0.88em; }
+.barwrap .lab { display: inline-block; width: 12.5em; }
+.barwrap .val { color: var(--muted); margin-left: 0.5em; }
+/* language toggle */
+.langbar { position: sticky; top: 0; z-index: 20; display: flex; justify-content: flex-end;
+           gap: 0.4em; padding: 0.5em 0; margin: -1em 0 0.5em; background: var(--bg);
+           font-family: -apple-system, system-ui, sans-serif; }
+.langbar button { border: 1px solid var(--line); background: white; color: var(--muted);
+                  padding: 3px 12px; border-radius: 14px; cursor: pointer; font-size: 0.85em; }
+.langbar button.active { background: var(--accent); color: white; border-color: var(--accent); font-weight: 600; }
+.lang { display: none; }
+html[data-lang="en"] .lang.en { display: block; }
+html[data-lang="ko"] .lang.ko { display: block; }
+</style>
+</head><body>
+<div class="langbar">
+  <button data-lang="en">EN</button>
+  <button data-lang="ko">한국어</button>
+</div>
+
+<div class="lang en">
+<header>
+  <div class="proj">CoC Criminalization &amp; PLE Engagement · Lee, Kim &amp; An, UCF</div>
+  <h1>PLE narrative coding</h1>
+  <p class="lead">All 620 CoC-years coded on the 15-indicator schema (Sonnet, strict), validated against the pilot.</p>
+  <nav class="main"><a class="" href="index.html">Overview</a><a class="" href="data.html">Data &amp; pipeline</a><a class="" href="measurement.html">Measurement</a><a class="" href="descriptive.html">Descriptive stats</a><a class="active" href="pilot.html">PLE coding</a><a class="" href="results.html">Results</a><a class="" href="status.html">Status</a></nav>
+</header>
+
+<div class="card-row">
+  <div class="stat"><div class="label">CoC-years coded</div><div class="value">620</div></div>
+  <div class="stat"><div class="label">Indicators</div><div class="value">15</div></div>
+  <div class="stat"><div class="label">Validation vs pilot</div><div class="value">~86%</div></div>
+</div>
+
+<h2>Coding the full corpus</h2>
+<p>Every CoC-year's three PLE narratives (1D-10 umbrella / prof-dev / feedback)
+was coded on the <strong>15-indicator schema</strong> by Claude&nbsp;Sonnet under
+<strong>strict definitions</strong>. Each indicator is <strong>T</strong> (clear
+evidence), <strong>F</strong> (discussed but absent), or <strong>null</strong>
+(not mentioned). Scoring: <code>null0</code> (unmentioned&nbsp;=&nbsp;0) is the
+primary convention, <code>avail</code> (unmentioned skipped) the robustness variant.
+Codes and indices live in <code>ple_narrative_codes.xlsx</code>.</p>
+
+<h2>Per-indicator rates (of 620)</h2>
+<table><tr><th>Indicator</th><th>Meaning</th><th class="num">T</th><th class="num">F</th><th class="num">null</th><th>T-rate</th></tr><tr><td colspan="6" style="background:var(--panel);font-weight:600;font-family:Georgia,serif">Umbrella</td></tr><tr><td><code>on_board</code></td><td>PLE on the governing board</td><td class="num">413</td><td class="num">20</td><td class="num">187</td><td class="barwrap"><span class="bar " style="width:80.39999999999999px"></span><span class="val">67%</span></td></tr><tr><td><code>on_committees</code></td><td>PLE on committees/workgroups</td><td class="num">492</td><td class="num">13</td><td class="num">115</td><td class="barwrap"><span class="bar " style="width:94.8px"></span><span class="val">79%</span></td></tr><tr><td><code>compensated</code></td><td>PLE compensated for their time</td><td class="num">249</td><td class="num">16</td><td class="num">355</td><td class="barwrap"><span class="bar " style="width:48.0px"></span><span class="val">40%</span></td></tr><tr><td><code>hiring_advertised</code></td><td>Roles publicly advertised</td><td class="num">376</td><td class="num">21</td><td class="num">223</td><td class="barwrap"><span class="bar " style="width:73.2px"></span><span class="val">61%</span></td></tr><tr><td><code>formal_policy</code></td><td>Written PLE-engagement policy</td><td class="num">149</td><td class="num">8</td><td class="num">463</td><td class="barwrap"><span class="bar " style="width:28.799999999999997px"></span><span class="val">24%</span></td></tr><tr><td><code>decisionmaking</code></td><td>Voting/veto authority (beyond advisory)</td><td class="num">253</td><td class="num">25</td><td class="num">342</td><td class="barwrap"><span class="bar " style="width:49.199999999999996px"></span><span class="val">41%</span></td></tr><tr><td colspan="6" style="background:var(--panel);font-weight:600;font-family:Georgia,serif">Prof-dev</td></tr><tr><td><code>paid_positions</code></td><td>Paid PLE staff positions</td><td class="num">470</td><td class="num">7</td><td class="num">143</td><td class="barwrap"><span class="bar " style="width:91.2px"></span><span class="val">76%</span></td></tr><tr><td><code>comp_policy_formal</code></td><td>Formal compensation policy</td><td class="num">75</td><td class="num">6</td><td class="num">539</td><td class="barwrap"><span class="bar " style="width:14.399999999999999px"></span><span class="val">12%</span></td></tr><tr><td><code>training_pipeline</code></td><td>Training/mentorship pathway</td><td class="num">567</td><td class="num">3</td><td class="num">50</td><td class="barwrap"><span class="bar " style="width:109.2px"></span><span class="val">91%</span></td></tr><tr><td><code>career_advancement</code></td><td>Advancement path (beyond entry-level)</td><td class="num">232</td><td class="num">1</td><td class="num">387</td><td class="barwrap"><span class="bar " style="width:44.4px"></span><span class="val">37%</span></td></tr><tr><td><code>scope_beyond_tokenism</code></td><td>Substantive (non-token) roles</td><td class="num">465</td><td class="num">3</td><td class="num">152</td><td class="barwrap"><span class="bar " style="width:90.0px"></span><span class="val">75%</span></td></tr><tr><td colspan="6" style="background:var(--panel);font-weight:600;font-family:Georgia,serif">Feedback</td></tr><tr><td><code>mechanism_formal</code></td><td>Formal feedback channel</td><td class="num">602</td><td class="num">6</td><td class="num">12</td><td class="barwrap"><span class="bar ceil" style="width:116.39999999999999px"></span><span class="val">97%</span></td></tr><tr><td><code>acts_on_feedback</code></td><td>Acts on feedback (concrete change)</td><td class="num">478</td><td class="num">2</td><td class="num">140</td><td class="barwrap"><span class="bar " style="width:92.39999999999999px"></span><span class="val">77%</span></td></tr><tr><td><code>addresses_barriers</code></td><td>Participation accommodations</td><td class="num">150</td><td class="num">3</td><td class="num">467</td><td class="barwrap"><span class="bar " style="width:28.799999999999997px"></span><span class="val">24%</span></td></tr><tr><td><code>closes_the_loop</code></td><td>Reports back to PLE</td><td class="num">29</td><td class="num">0</td><td class="num">591</td><td class="barwrap"><span class="bar floor" style="width:6.0px"></span><span class="val">5%</span></td></tr></table>
+<p class="lead" style="margin-top:0.6em"><span class="badge warn">amber</span> =
+near ceiling, <span class="badge bad">red</span> = near floor. Ceilings
+(<code>mechanism_formal</code>, <code>training_pipeline</code>) and the floor
+(<code>closes_the_loop</code>) reflect how the HUD items are worded, not coding
+error — flagged for coauthor sign-off.</p>
+
+<h2>Domain composites</h2>
+<p>Under the <code>null0</code> convention, the domain composites and the overall
+index show healthy variance with no ceiling — unlike some individual indicators.
+Read straight from the R descriptives output.</p>
+<table><tr><th>Domain composite</th><th class="num">Mean</th><th class="num">SD</th></tr><tr><td>Umbrella (structural inclusion)</td><td class="num">0.519</td><td class="num">0.272</td></tr><tr><td>Professional development</td><td class="num">0.584</td><td class="num">0.254</td></tr><tr><td>Feedback</td><td class="num">0.508</td><td class="num">0.184</td></tr><tr><td>Overall (ple_institution)</td><td class="num">0.537</td><td class="num">0.174</td></tr></table>
+
+<h2>Validation against the pilot</h2>
+<div class="findings-box">
+  <h3>Strict Sonnet reproduces the pilot at ~86%</h3>
+  <ul>
+    <li>The 24-case pilot (Claude&nbsp;Opus&nbsp;4.7, with verbatim evidence for
+    every code) is the <strong>validation reference</strong>. Its internal
+    double-coding agreement was 91.7%.</li>
+    <li>Re-coding those 24 with strict Sonnet matched the pilot on
+    <strong>~86%</strong> of decisions (Haiku only 78%, so Haiku was rejected).</li>
+    <li>Residual disagreement concentrated on <code>addresses_barriers</code>,
+    which the pilot coded liberally; its definition was <strong>tightened</strong>
+    to participation accommodations only (interpretation, transport, childcare,
+    tech access), and the full corpus uses that strict rule.</li>
+  </ul>
+</div>
+<p class="lead">The pilot workbook (<code>pilot_coding_review.xlsx</code>) keeps the
+per-code evidence and double-coding detail as the audit reference.</p>
+
+<footer><strong>2026 rebuild.</strong> Standalone status site built locally from the August&nbsp;2026 R&nbsp;pipeline outputs (<code>coc_panel</code>, <code>coc_analysis_vars</code>, <code>03_descriptives</code>, <code>coc_leadership</code>, <code>pilot_coding_review</code>). Every figure verified against source on 2026-08-19. Separate from the deployed <code>docs/</code> site. Authors: Kyungmin&nbsp;Lee, Hanvit&nbsp;Kim &amp; Seongho&nbsp;An (University of Central Florida).</footer>
+</div>
+
+<div class="lang ko">
+<header>
+  <div class="proj">CoC 범죄화 &amp; PLE 참여 · Lee, Kim &amp; An, UCF</div>
+  <h1>PLE 내러티브 코딩</h1>
+  <p class="lead">620개 CoC-연도 전량을 15개 지표 스키마로 코딩(Sonnet·엄격), 파일럿 대비 검증.</p>
+  <nav class="main"><a class="" href="index.html">개요</a><a class="" href="data.html">데이터 · 파이프라인</a><a class="" href="measurement.html">측정</a><a class="" href="descriptive.html">기술통계</a><a class="active" href="pilot.html">PLE 코딩</a><a class="" href="results.html">결과</a><a class="" href="status.html">진행상황</a></nav>
+</header>
+
+<div class="card-row">
+  <div class="stat"><div class="label">코딩한 CoC-연도</div><div class="value">620</div></div>
+  <div class="stat"><div class="label">지표 수</div><div class="value">15</div></div>
+  <div class="stat"><div class="label">파일럿 대비 검증</div><div class="value">~86%</div></div>
+</div>
+
+<h2>전체 코퍼스 코딩</h2>
+<p>모든 CoC-연도의 세 PLE 내러티브(1D-10 umbrella / prof-dev / feedback)를
+<strong>15개 지표 스키마</strong>로 Claude&nbsp;Sonnet이 <strong>엄격한 정의</strong>
+아래 코딩했습니다. 각 지표는 <strong>T</strong>(명확한 근거),
+<strong>F</strong>(논의됐으나 부재), <strong>null</strong>(무언급)입니다. 점수화는
+<code>null0</code>(무언급&nbsp;=&nbsp;0)이 주 관례, <code>avail</code>(무언급 제외)이
+강건성용입니다. 코드·지수는 <code>ple_narrative_codes.xlsx</code>에 있습니다.</p>
+
+<h2>지표별 비율 (620 중)</h2>
+<table><tr><th>지표</th><th>의미</th><th class="num">T</th><th class="num">F</th><th class="num">null</th><th>T 비율</th></tr><tr><td colspan="6" style="background:var(--panel);font-weight:600;font-family:Georgia,serif">구조적 포함</td></tr><tr><td><code>on_board</code></td><td>이사회에 PLE</td><td class="num">413</td><td class="num">20</td><td class="num">187</td><td class="barwrap"><span class="bar " style="width:80.39999999999999px"></span><span class="val">67%</span></td></tr><tr><td><code>on_committees</code></td><td>위원회·워킹그룹에 PLE</td><td class="num">492</td><td class="num">13</td><td class="num">115</td><td class="barwrap"><span class="bar " style="width:94.8px"></span><span class="val">79%</span></td></tr><tr><td><code>compensated</code></td><td>PLE 시간 보상</td><td class="num">249</td><td class="num">16</td><td class="num">355</td><td class="barwrap"><span class="bar " style="width:48.0px"></span><span class="val">40%</span></td></tr><tr><td><code>hiring_advertised</code></td><td>역할 공개 모집</td><td class="num">376</td><td class="num">21</td><td class="num">223</td><td class="barwrap"><span class="bar " style="width:73.2px"></span><span class="val">61%</span></td></tr><tr><td><code>formal_policy</code></td><td>공식 PLE 참여 정책</td><td class="num">149</td><td class="num">8</td><td class="num">463</td><td class="barwrap"><span class="bar " style="width:28.799999999999997px"></span><span class="val">24%</span></td></tr><tr><td><code>decisionmaking</code></td><td>의결·거부권(자문 이상)</td><td class="num">253</td><td class="num">25</td><td class="num">342</td><td class="barwrap"><span class="bar " style="width:49.199999999999996px"></span><span class="val">41%</span></td></tr><tr><td colspan="6" style="background:var(--panel);font-weight:600;font-family:Georgia,serif">전문성 개발</td></tr><tr><td><code>paid_positions</code></td><td>유급 PLE 직위</td><td class="num">470</td><td class="num">7</td><td class="num">143</td><td class="barwrap"><span class="bar " style="width:91.2px"></span><span class="val">76%</span></td></tr><tr><td><code>comp_policy_formal</code></td><td>공식 보상 정책</td><td class="num">75</td><td class="num">6</td><td class="num">539</td><td class="barwrap"><span class="bar " style="width:14.399999999999999px"></span><span class="val">12%</span></td></tr><tr><td><code>training_pipeline</code></td><td>훈련·멘토십 경로</td><td class="num">567</td><td class="num">3</td><td class="num">50</td><td class="barwrap"><span class="bar " style="width:109.2px"></span><span class="val">91%</span></td></tr><tr><td><code>career_advancement</code></td><td>경력 발전 경로</td><td class="num">232</td><td class="num">1</td><td class="num">387</td><td class="barwrap"><span class="bar " style="width:44.4px"></span><span class="val">37%</span></td></tr><tr><td><code>scope_beyond_tokenism</code></td><td>실질적(비형식적) 역할</td><td class="num">465</td><td class="num">3</td><td class="num">152</td><td class="barwrap"><span class="bar " style="width:90.0px"></span><span class="val">75%</span></td></tr><tr><td colspan="6" style="background:var(--panel);font-weight:600;font-family:Georgia,serif">환류</td></tr><tr><td><code>mechanism_formal</code></td><td>공식 환류 기제</td><td class="num">602</td><td class="num">6</td><td class="num">12</td><td class="barwrap"><span class="bar ceil" style="width:116.39999999999999px"></span><span class="val">97%</span></td></tr><tr><td><code>acts_on_feedback</code></td><td>피드백 반영(구체적 변화)</td><td class="num">478</td><td class="num">2</td><td class="num">140</td><td class="barwrap"><span class="bar " style="width:92.39999999999999px"></span><span class="val">77%</span></td></tr><tr><td><code>addresses_barriers</code></td><td>참여 편의제공</td><td class="num">150</td><td class="num">3</td><td class="num">467</td><td class="barwrap"><span class="bar " style="width:28.799999999999997px"></span><span class="val">24%</span></td></tr><tr><td><code>closes_the_loop</code></td><td>PLE에 결과 회신</td><td class="num">29</td><td class="num">0</td><td class="num">591</td><td class="barwrap"><span class="bar floor" style="width:6.0px"></span><span class="val">5%</span></td></tr></table>
+<p class="lead" style="margin-top:0.6em"><span class="badge warn">앰버</span> = 준천장,
+<span class="badge bad">빨강</span> = 준바닥. 천장(<code>mechanism_formal</code>,
+<code>training_pipeline</code>)과 바닥(<code>closes_the_loop</code>)은 코딩 오류가
+아니라 HUD 문항 표현 방식의 결과이며, 공저자 승인 대상으로 표시됩니다.</p>
+
+<h2>도메인 합성지수</h2>
+<p><code>null0</code> 관례에서 도메인 합성지수와 종합 지수는 천장 없이 건전한 분산을
+보입니다. R 기술통계 출력에서 직접 읽습니다.</p>
+<table><tr><th>도메인 합성지수</th><th class="num">평균</th><th class="num">SD</th></tr><tr><td>Umbrella (구조적 포함)</td><td class="num">0.519</td><td class="num">0.272</td></tr><tr><td>전문성 개발</td><td class="num">0.584</td><td class="num">0.254</td></tr><tr><td>환류(Feedback)</td><td class="num">0.508</td><td class="num">0.184</td></tr><tr><td>종합 (ple_institution)</td><td class="num">0.537</td><td class="num">0.174</td></tr></table>
+
+<h2>파일럿 대비 검증</h2>
+<div class="findings-box">
+  <h3>엄격 Sonnet이 파일럿을 ~86% 재현</h3>
+  <ul>
+    <li>24케이스 파일럿(Claude&nbsp;Opus&nbsp;4.7, 모든 코드에 원문 근거)이
+    <strong>검증 기준</strong>입니다. 파일럿 내부 이중코딩 일치율은 91.7%였습니다.</li>
+    <li>그 24개를 엄격 Sonnet으로 재코딩하니 판정의 <strong>~86%</strong>가 일치
+    (Haiku는 78%에 그쳐 탈락).</li>
+    <li>잔여 불일치는 파일럿이 관대하게 코딩한 <code>addresses_barriers</code>에
+    집중됐고, 정의를 <strong>참여 편의제공(통역·교통·보육·기술접근)만</strong>으로
+    엄격히 좁혀 전체 코퍼스에 적용했습니다.</li>
+  </ul>
+</div>
+<p class="lead">파일럿 워크북(<code>pilot_coding_review.xlsx</code>)은 코드별 근거와
+이중코딩 세부를 감사 기준으로 보관합니다.</p>
+
+<footer><strong>2026 리빌드.</strong> 2026년 8월 R 파이프라인 산출물(<code>coc_panel</code>, <code>coc_analysis_vars</code>, <code>03_descriptives</code>, <code>coc_leadership</code>, <code>pilot_coding_review</code>)에서 로컬로 생성한 독립 현황 사이트입니다. 모든 수치는 2026-08-19에 원본과 대조해 검증했습니다. 배포 중인 <code>docs/</code> 사이트와는 별개입니다. 저자: Kyungmin&nbsp;Lee, Hanvit&nbsp;Kim &amp; Seongho&nbsp;An (University of Central Florida).</footer>
+</div>
+
+<script>
+(function(){
+  var KEY='coc_lang';
+  function set(l){
+    document.documentElement.setAttribute('data-lang',l);
+    try{localStorage.setItem(KEY,l);}catch(e){}
+    document.querySelectorAll('.langbar button').forEach(function(b){
+      b.classList.toggle('active', b.dataset.lang===l);
+    });
+    var t=document.querySelector('title[data-'+l+']');
+    var el=document.querySelector('title');
+    if(el){el.textContent=el.getAttribute('data-'+l)||el.textContent;}
+  }
+  var saved='en';
+  try{saved=localStorage.getItem(KEY)||'en';}catch(e){}
+  document.addEventListener('DOMContentLoaded',function(){
+    set(saved);
+    document.querySelectorAll('.langbar button').forEach(function(b){
+      b.addEventListener('click',function(){set(b.dataset.lang);});
+    });
+  });
+  document.documentElement.setAttribute('data-lang',saved);
+})();
+</script>
+</body></html>

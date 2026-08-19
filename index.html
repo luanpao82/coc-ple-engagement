@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Overview · CoC / PLE (2026)" data-ko="개요 · CoC / PLE (2026)">Overview · CoC / PLE (2026)</title>
+<style>
+:root {
+  --bg: #ffffff; --fg: #1a1a1a; --muted: #666; --accent: #0366d6;
+  --line: #e5e5e5; --hi: #f7f7f7; --good: #17813c; --bad: #c53030;
+  --warn: #b68400; --panel: #f0f6ff; --callout: #fff9e6;
+}
+* { box-sizing: border-box; }
+body { font-family: Georgia, "Times New Roman", "Apple SD Gothic Neo", serif;
+       max-width: 860px; margin: 0 auto; padding: 2em 1.2em 4em;
+       color: var(--fg); background: var(--bg); line-height: 1.7; font-size: 17px; }
+header { border-bottom: 2px solid var(--line); padding-bottom: 1.2em; margin-bottom: 2em; }
+header .proj { color: var(--muted); font-size: 0.85em; letter-spacing: 0.04em; text-transform: uppercase; }
+h1 { margin: 0.3em 0 0.2em; font-size: 2em; letter-spacing: -0.01em; line-height: 1.25; }
+h2 { margin-top: 2.5em; padding-bottom: 0.2em; border-bottom: 1px solid var(--line); font-size: 1.5em; }
+h3 { margin-top: 2em; font-size: 1.2em; color: #222; }
+h4 { margin-top: 1.5em; font-size: 1.02em; color: #333; }
+p, li { line-height: 1.7; }
+.lead { color: var(--muted); font-size: 1.05em; font-style: italic; }
+nav.main { display: flex; gap: 1.2em; margin: 0.6em 0 0; flex-wrap: wrap;
+           font-family: -apple-system, system-ui, sans-serif; font-size: 0.92em; }
+nav.main a { color: var(--accent); text-decoration: none; }
+nav.main a.active { color: var(--fg); font-weight: 600; }
+nav.main a:hover { text-decoration: underline; }
+table { width: 100%; border-collapse: collapse; margin: 1.2em 0; font-size: 0.93em;
+        font-family: -apple-system, system-ui, sans-serif; }
+th, td { padding: 7px 11px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { background: var(--hi); font-weight: 600; }
+tr:hover { background: #fafafa; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.badge { display: inline-block; padding: 1px 8px; border-radius: 10px;
+         font-size: 0.8em; background: var(--hi); color: var(--muted);
+         font-family: -apple-system, system-ui, sans-serif; }
+.badge.good { background: #eafaef; color: var(--good); }
+.badge.warn { background: #fff7e0; color: var(--warn); }
+.badge.bad { background: #fde8e8; color: var(--bad); }
+.stat { display: inline-block; background: var(--hi); padding: 0.9em 1.3em;
+        border-radius: 6px; margin: 0.3em 0.3em 0.3em 0; min-width: 200px;
+        font-family: -apple-system, system-ui, sans-serif; }
+.stat .label { color: var(--muted); font-size: 0.82em; margin-bottom: 0.3em; }
+.stat .value { font-size: 1.7em; font-weight: 600; color: var(--fg); }
+code { background: #f2f2f2; padding: 1px 5px; border-radius: 3px;
+       font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.88em; }
+blockquote { background: var(--callout); border-left: 4px solid #c8a030;
+             padding: 0.8em 1.2em; margin: 1.4em 0; border-radius: 0 6px 6px 0; }
+.callout { background: var(--panel); border-left: 4px solid var(--accent);
+           padding: 0.8em 1.2em; margin: 1.4em 0; border-radius: 0 6px 6px 0; }
+.callout-title { font-weight: 600; color: var(--accent); margin-bottom: 0.4em;
+                 font-family: -apple-system, system-ui, sans-serif; font-size: 0.95em; }
+footer { margin-top: 5em; padding-top: 1.4em; border-top: 1px solid var(--line);
+         color: var(--muted); font-size: 0.85em;
+         font-family: -apple-system, system-ui, sans-serif; }
+.card-row { display: flex; gap: 1em; flex-wrap: wrap; margin: 1em 0;
+            font-family: -apple-system, system-ui, sans-serif; }
+.card { flex: 1; min-width: 260px; background: var(--hi); padding: 1.2em;
+        border-radius: 6px; border: 1px solid var(--line); }
+.hub-card { display: block; background: white; border: 1px solid var(--line);
+            border-radius: 8px; padding: 1.3em 1.4em; text-decoration: none;
+            color: inherit; transition: all 0.2s ease; margin-bottom: 0.8em; }
+.hub-card:hover { border-color: var(--accent); box-shadow: 0 2px 10px rgba(3,102,214,0.08);
+                  transform: translateY(-1px); }
+.hub-card h3 { margin: 0 0 0.4em; color: var(--accent); font-family: Georgia, serif; font-size: 1.15em; }
+.hub-card p { margin: 0.3em 0 0; color: var(--fg); font-size: 0.95em; line-height: 1.55; }
+.hub-grid { display: grid; gap: 0.9em; grid-template-columns: 1fr; margin: 1em 0 2em; }
+@media (min-width: 700px) { .hub-grid { grid-template-columns: 1fr 1fr; } }
+.findings-box { background: #f0faf3; border-left: 4px solid var(--good);
+                padding: 1em 1.3em; border-radius: 0 8px 8px 0; margin: 1.3em 0; }
+.findings-box h3 { margin-top: 0; color: var(--good); font-family: Georgia, serif; }
+.findings-box ul { margin: 0.4em 0 0; padding-left: 1.3em; }
+.step-list { list-style: none; padding-left: 0; counter-reset: step; }
+.step-list > li { counter-increment: step; position: relative; padding: 0.6em 0 0.6em 3em; }
+.step-list > li::before { content: counter(step); position: absolute; left: 0; top: 0.7em;
+                          width: 2em; height: 2em; border-radius: 50%;
+                          background: var(--accent); color: white;
+                          text-align: center; line-height: 2em; font-weight: 600;
+                          font-family: -apple-system, sans-serif; font-size: 0.9em; }
+.bar { display: inline-block; height: 0.8em; background: var(--accent); border-radius: 2px;
+       vertical-align: middle; }
+.bar.floor { background: var(--bad); } .bar.ceil { background: var(--warn); }
+.barwrap { font-family: -apple-system, system-ui, sans-serif; font-size: 0.88em; }
+.barwrap .lab { display: inline-block; width: 12.5em; }
+.barwrap .val { color: var(--muted); margin-left: 0.5em; }
+/* language toggle */
+.langbar { position: sticky; top: 0; z-index: 20; display: flex; justify-content: flex-end;
+           gap: 0.4em; padding: 0.5em 0; margin: -1em 0 0.5em; background: var(--bg);
+           font-family: -apple-system, system-ui, sans-serif; }
+.langbar button { border: 1px solid var(--line); background: white; color: var(--muted);
+                  padding: 3px 12px; border-radius: 14px; cursor: pointer; font-size: 0.85em; }
+.langbar button.active { background: var(--accent); color: white; border-color: var(--accent); font-weight: 600; }
+.lang { display: none; }
+html[data-lang="en"] .lang.en { display: block; }
+html[data-lang="ko"] .lang.ko { display: block; }
+</style>
+</head><body>
+<div class="langbar">
+  <button data-lang="en">EN</button>
+  <button data-lang="ko">한국어</button>
+</div>
+
+<div class="lang en">
+<header>
+  <div class="proj">CoC Criminalization &amp; PLE Engagement · Lee, Kim &amp; An, UCF</div>
+  <h1>Overview</h1>
+  <p class="lead">Does PLE engagement shape a CoC's anti-criminalization advocacy? — an August 2026 snapshot.</p>
+  <nav class="main"><a class="active" href="index.html">Overview</a><a class="" href="data.html">Data &amp; pipeline</a><a class="" href="measurement.html">Measurement</a><a class="" href="descriptive.html">Descriptive stats</a><a class="" href="pilot.html">PLE coding</a><a class="" href="results.html">Results</a><a class="" href="status.html">Status</a></nav>
+</header>
+
+<p class="lead">A companion status site for the study of how Continuums of Care
+(CoCs) engage <strong>people with lived experience (PLE)</strong> of homelessness,
+and whether that engagement shapes local responses to the criminalization of
+homelessness — refreshed to reflect the August&nbsp;2026 working session.</p>
+
+<div class="callout">
+  <div class="callout-title">What this site is</div>
+  This is a <strong>separate rebuild</strong> reflecting the August&nbsp;2026 R
+  pipeline: the merged manual coding, the 650&nbsp;&times;&nbsp;320 analysis panel,
+  the measurement frame, and the validated Stage&nbsp;3 coding pilot. The
+  regression estimates for the moderation model are <strong>not yet run</strong>
+  (script&nbsp;04 is pending), so this site reports data construction, measurement,
+  and descriptive evidence — not final results.
+</div>
+
+<h2>The study</h2>
+<p><em>From Inclusion to Influence: How CoC Governance Shapes Engagement with
+People with Lived Experience and Local Responses to Homelessness
+Criminalization.</em> The project builds original measures of governance
+structure and PLE engagement from annual HUD CoC application materials
+(FY2022–FY2024) and links them to local anti-criminalization activity.</p>
+
+<h3>Research question</h3>
+<ol>
+  <li>Does the degree of PLE engagement shape a CoC's
+  anti-criminalization advocacy activities — and does CoC leadership
+  structure (nonprofit- vs government-led) moderate that relationship?</li>
+</ol>
+
+<h2>The August 2026 snapshot</h2>
+<div class="card-row">
+  <div class="stat"><div class="label">Analysis panel</div><div class="value">650</div></div>
+  <div class="stat"><div class="label">Panel columns</div><div class="value">320</div></div>
+  <div class="stat"><div class="label">Unique CoCs</div><div class="value">320</div></div>
+  <div class="stat"><div class="label">Pilot CoC-years coded</div><div class="value">24</div></div>
+</div>
+
+<div class="findings-box">
+  <h3>What changed since April</h3>
+  <ul>
+    <li><strong>Manual coding merged.</strong> Coauthor remediation coding
+    folded into the raw data by R script — 383 cells across 24 CoC-years,
+    with a cell-level merge log and an incidental cross-validation.</li>
+    <li><strong>Analysis panel built in R.</strong> A three-script pipeline
+    produces a 650&nbsp;CoC-year &times; 320-column panel and the model-role
+    variables (DV, PLE-engagement counts, leadership, size control).</li>
+    <li><strong>Coding frame piloted and validated.</strong> The 15-indicator
+    PLE-engagement schema was coded on a stratified 24-case pilot; all 232
+    supporting quotations verify exactly and double-coding agreement is 91.7%.</li>
+  </ul>
+</div>
+
+<h2>Where to go next</h2>
+<div class="hub-grid">
+  <a class="hub-card" href="data.html"><h3>Data &amp; pipeline</h3>
+    <p>The R pipeline from raw HUD documents to the 650&nbsp;&times;&nbsp;320
+    panel: manual merge, the FY2022 crosswalk fix, exclusions, and the HUD
+    PIT size control.</p></a>
+  <a class="hub-card" href="measurement.html"><h3>Measurement &amp; coding frame</h3>
+    <p>The dependent variable, the PLE-engagement measures, the 15-indicator
+    narrative coding schema, and the nonprofit-vs-government leadership
+    classification.</p></a>
+  <a class="hub-card" href="descriptive.html"><h3>Descriptive stats</h3>
+    <p>Verified distributions for the analysis variables, the year-by-year
+    rise in anti-criminalization activity, and the leadership split.</p></a>
+  <a class="hub-card" href="pilot.html"><h3>PLE coding</h3>
+    <p>24 CoC-years coded on the 15-indicator frame, per-indicator hit rates,
+    domain composites, and the evidence / reliability validation.</p></a>
+</div>
+
+<footer><strong>2026 rebuild.</strong> Standalone status site built locally from the August&nbsp;2026 R&nbsp;pipeline outputs (<code>coc_panel</code>, <code>coc_analysis_vars</code>, <code>03_descriptives</code>, <code>coc_leadership</code>, <code>pilot_coding_review</code>). Every figure verified against source on 2026-08-19. Separate from the deployed <code>docs/</code> site. Authors: Kyungmin&nbsp;Lee, Hanvit&nbsp;Kim &amp; Seongho&nbsp;An (University of Central Florida).</footer>
+</div>
+
+<div class="lang ko">
+<header>
+  <div class="proj">CoC 범죄화 &amp; PLE 참여 · Lee, Kim &amp; An, UCF</div>
+  <h1>개요</h1>
+  <p class="lead">PLE 참여가 CoC의 반범죄화 옹호 활동을 형성하는가 — 2026년 8월 스냅샷.</p>
+  <nav class="main"><a class="active" href="index.html">개요</a><a class="" href="data.html">데이터 · 파이프라인</a><a class="" href="measurement.html">측정</a><a class="" href="descriptive.html">기술통계</a><a class="" href="pilot.html">PLE 코딩</a><a class="" href="results.html">결과</a><a class="" href="status.html">진행상황</a></nav>
+</header>
+
+<p class="lead">Continuum of Care(CoC)가 노숙 <strong>당사자(PLE, people with lived
+experience)</strong>를 어떻게 참여시키는지, 그리고 그 참여가 노숙의 범죄화에 대한
+지역의 대응을 형성하는지를 다루는 연구의 현황 사이트입니다 — 2026년 8월 작업 세션을
+반영해 갱신했습니다.</p>
+
+<div class="callout">
+  <div class="callout-title">이 사이트는</div>
+  2026년 8월 R 파이프라인을 반영한 <strong>별도 리빌드</strong>입니다: 수기 코딩 병합,
+  650&nbsp;&times;&nbsp;320 분석 패널, 측정 프레임, 검증된 Stage&nbsp;3 코딩 파일럿.
+  모더레이션 모델의 회귀 추정치는 <strong>아직 산출되지 않았으므로</strong>(script&nbsp;04
+  대기 중), 이 사이트는 최종 결과가 아니라 데이터 구축·측정·기술통계 근거를 보고합니다.
+</div>
+
+<h2>연구 개요</h2>
+<p><em>From Inclusion to Influence: How CoC Governance Shapes Engagement with
+People with Lived Experience and Local Responses to Homelessness
+Criminalization.</em> 이 프로젝트는 HUD CoC 연례 신청 자료(FY2022–FY2024)에서
+거버넌스 구조와 PLE 참여에 대한 독자적 측정치를 구축하고, 이를 지역의 반(反)범죄화
+활동과 연결합니다.</p>
+
+<h3>연구 질문</h3>
+<ol>
+  <li>PLE의 참여 정도가 CoC의 반(反)범죄화 옹호 활동(anti-criminalization
+  advocacy activities)에 영향을 미치는가 — 그리고 CoC 리더십 구조(비영리 vs 정부
+  주도)가 이 관계를 조절하는가?</li>
+</ol>
+
+<h2>2026년 8월 스냅샷</h2>
+<div class="card-row">
+  <div class="stat"><div class="label">분석 패널</div><div class="value">650</div></div>
+  <div class="stat"><div class="label">패널 열</div><div class="value">320</div></div>
+  <div class="stat"><div class="label">고유 CoC</div><div class="value">320</div></div>
+  <div class="stat"><div class="label">파일럿 코딩 CoC-연도</div><div class="value">24</div></div>
+</div>
+
+<div class="findings-box">
+  <h3>4월 이후 달라진 것</h3>
+  <ul>
+    <li><strong>수기 코딩 병합.</strong> 공저자의 보강 코딩을 R 스크립트로 원자료에
+    병합 — 24 CoC-연도에 걸쳐 383개 셀, 셀 단위 병합 로그와 부수적 교차검증 포함.</li>
+    <li><strong>분석 패널을 R로 구축.</strong> 3개 스크립트 파이프라인이
+    650 CoC-연도 &times; 320열 패널과 모델 역할 변수(DV, PLE 참여 수, 리더십, 규모
+    통제변수)를 생성.</li>
+    <li><strong>코딩 프레임 파일럿·검증.</strong> 15개 지표 PLE 참여 스키마를 층화
+    추출한 24케이스에 적용; 근거 인용문 232개 전량이 정확히 일치하고 이중코딩 일치율은
+    91.7%.</li>
+  </ul>
+</div>
+
+<h2>다음으로 볼 곳</h2>
+<div class="hub-grid">
+  <a class="hub-card" href="data.html"><h3>데이터 · 파이프라인</h3>
+    <p>원본 HUD 문서에서 650&nbsp;&times;&nbsp;320 패널까지의 R 파이프라인: 수기 병합,
+    FY2022 크로스워크 수정, 제외 규칙, HUD PIT 규모 통제변수.</p></a>
+  <a class="hub-card" href="measurement.html"><h3>측정 · 코딩 프레임</h3>
+    <p>종속변수, PLE 참여 측정치, 15개 지표 내러티브 코딩 스키마, 비영리 대 정부
+    리더십 분류.</p></a>
+  <a class="hub-card" href="descriptive.html"><h3>기술통계</h3>
+    <p>분석 변수의 검증된 분포, 반범죄화 활동의 연도별 상승, 리더십 구분.</p></a>
+  <a class="hub-card" href="pilot.html"><h3>PLE 코딩</h3>
+    <p>15개 지표 프레임으로 코딩한 24 CoC-연도, 지표별 적중률, 도메인 합성지수,
+    근거 · 신뢰도 검증.</p></a>
+</div>
+
+<footer><strong>2026 리빌드.</strong> 2026년 8월 R 파이프라인 산출물(<code>coc_panel</code>, <code>coc_analysis_vars</code>, <code>03_descriptives</code>, <code>coc_leadership</code>, <code>pilot_coding_review</code>)에서 로컬로 생성한 독립 현황 사이트입니다. 모든 수치는 2026-08-19에 원본과 대조해 검증했습니다. 배포 중인 <code>docs/</code> 사이트와는 별개입니다. 저자: Kyungmin&nbsp;Lee, Hanvit&nbsp;Kim &amp; Seongho&nbsp;An (University of Central Florida).</footer>
+</div>
+
+<script>
+(function(){
+  var KEY='coc_lang';
+  function set(l){
+    document.documentElement.setAttribute('data-lang',l);
+    try{localStorage.setItem(KEY,l);}catch(e){}
+    document.querySelectorAll('.langbar button').forEach(function(b){
+      b.classList.toggle('active', b.dataset.lang===l);
+    });
+    var t=document.querySelector('title[data-'+l+']');
+    var el=document.querySelector('title');
+    if(el){el.textContent=el.getAttribute('data-'+l)||el.textContent;}
+  }
+  var saved='en';
+  try{saved=localStorage.getItem(KEY)||'en';}catch(e){}
+  document.addEventListener('DOMContentLoaded',function(){
+    set(saved);
+    document.querySelectorAll('.langbar button').forEach(function(b){
+      b.addEventListener('click',function(){set(b.dataset.lang);});
+    });
+  });
+  document.documentElement.setAttribute('data-lang',saved);
+})();
+</script>
+</body></html>

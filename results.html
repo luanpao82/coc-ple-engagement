@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Panel analysis results · CoC / PLE (2026)" data-ko="패널 분석 결과 · CoC / PLE (2026)">Panel analysis results · CoC / PLE (2026)</title>
+<style>
+:root {
+  --bg: #ffffff; --fg: #1a1a1a; --muted: #666; --accent: #0366d6;
+  --line: #e5e5e5; --hi: #f7f7f7; --good: #17813c; --bad: #c53030;
+  --warn: #b68400; --panel: #f0f6ff; --callout: #fff9e6;
+}
+* { box-sizing: border-box; }
+body { font-family: Georgia, "Times New Roman", "Apple SD Gothic Neo", serif;
+       max-width: 860px; margin: 0 auto; padding: 2em 1.2em 4em;
+       color: var(--fg); background: var(--bg); line-height: 1.7; font-size: 17px; }
+header { border-bottom: 2px solid var(--line); padding-bottom: 1.2em; margin-bottom: 2em; }
+header .proj { color: var(--muted); font-size: 0.85em; letter-spacing: 0.04em; text-transform: uppercase; }
+h1 { margin: 0.3em 0 0.2em; font-size: 2em; letter-spacing: -0.01em; line-height: 1.25; }
+h2 { margin-top: 2.5em; padding-bottom: 0.2em; border-bottom: 1px solid var(--line); font-size: 1.5em; }
+h3 { margin-top: 2em; font-size: 1.2em; color: #222; }
+h4 { margin-top: 1.5em; font-size: 1.02em; color: #333; }
+p, li { line-height: 1.7; }
+.lead { color: var(--muted); font-size: 1.05em; font-style: italic; }
+nav.main { display: flex; gap: 1.2em; margin: 0.6em 0 0; flex-wrap: wrap;
+           font-family: -apple-system, system-ui, sans-serif; font-size: 0.92em; }
+nav.main a { color: var(--accent); text-decoration: none; }
+nav.main a.active { color: var(--fg); font-weight: 600; }
+nav.main a:hover { text-decoration: underline; }
+table { width: 100%; border-collapse: collapse; margin: 1.2em 0; font-size: 0.93em;
+        font-family: -apple-system, system-ui, sans-serif; }
+th, td { padding: 7px 11px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { background: var(--hi); font-weight: 600; }
+tr:hover { background: #fafafa; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.badge { display: inline-block; padding: 1px 8px; border-radius: 10px;
+         font-size: 0.8em; background: var(--hi); color: var(--muted);
+         font-family: -apple-system, system-ui, sans-serif; }
+.badge.good { background: #eafaef; color: var(--good); }
+.badge.warn { background: #fff7e0; color: var(--warn); }
+.badge.bad { background: #fde8e8; color: var(--bad); }
+.stat { display: inline-block; background: var(--hi); padding: 0.9em 1.3em;
+        border-radius: 6px; margin: 0.3em 0.3em 0.3em 0; min-width: 200px;
+        font-family: -apple-system, system-ui, sans-serif; }
+.stat .label { color: var(--muted); font-size: 0.82em; margin-bottom: 0.3em; }
+.stat .value { font-size: 1.7em; font-weight: 600; color: var(--fg); }
+code { background: #f2f2f2; padding: 1px 5px; border-radius: 3px;
+       font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.88em; }
+blockquote { background: var(--callout); border-left: 4px solid #c8a030;
+             padding: 0.8em 1.2em; margin: 1.4em 0; border-radius: 0 6px 6px 0; }
+.callout { background: var(--panel); border-left: 4px solid var(--accent);
+           padding: 0.8em 1.2em; margin: 1.4em 0; border-radius: 0 6px 6px 0; }
+.callout-title { font-weight: 600; color: var(--accent); margin-bottom: 0.4em;
+                 font-family: -apple-system, system-ui, sans-serif; font-size: 0.95em; }
+footer { margin-top: 5em; padding-top: 1.4em; border-top: 1px solid var(--line);
+         color: var(--muted); font-size: 0.85em;
+         font-family: -apple-system, system-ui, sans-serif; }
+.card-row { display: flex; gap: 1em; flex-wrap: wrap; margin: 1em 0;
+            font-family: -apple-system, system-ui, sans-serif; }
+.card { flex: 1; min-width: 260px; background: var(--hi); padding: 1.2em;
+        border-radius: 6px; border: 1px solid var(--line); }
+.hub-card { display: block; background: white; border: 1px solid var(--line);
+            border-radius: 8px; padding: 1.3em 1.4em; text-decoration: none;
+            color: inherit; transition: all 0.2s ease; margin-bottom: 0.8em; }
+.hub-card:hover { border-color: var(--accent); box-shadow: 0 2px 10px rgba(3,102,214,0.08);
+                  transform: translateY(-1px); }
+.hub-card h3 { margin: 0 0 0.4em; color: var(--accent); font-family: Georgia, serif; font-size: 1.15em; }
+.hub-card p { margin: 0.3em 0 0; color: var(--fg); font-size: 0.95em; line-height: 1.55; }
+.hub-grid { display: grid; gap: 0.9em; grid-template-columns: 1fr; margin: 1em 0 2em; }
+@media (min-width: 700px) { .hub-grid { grid-template-columns: 1fr 1fr; } }
+.findings-box { background: #f0faf3; border-left: 4px solid var(--good);
+                padding: 1em 1.3em; border-radius: 0 8px 8px 0; margin: 1.3em 0; }
+.findings-box h3 { margin-top: 0; color: var(--good); font-family: Georgia, serif; }
+.findings-box ul { margin: 0.4em 0 0; padding-left: 1.3em; }
+.step-list { list-style: none; padding-left: 0; counter-reset: step; }
+.step-list > li { counter-increment: step; position: relative; padding: 0.6em 0 0.6em 3em; }
+.step-list > li::before { content: counter(step); position: absolute; left: 0; top: 0.7em;
+                          width: 2em; height: 2em; border-radius: 50%;
+                          background: var(--accent); color: white;
+                          text-align: center; line-height: 2em; font-weight: 600;
+                          font-family: -apple-system, sans-serif; font-size: 0.9em; }
+.bar { display: inline-block; height: 0.8em; background: var(--accent); border-radius: 2px;
+       vertical-align: middle; }
+.bar.floor { background: var(--bad); } .bar.ceil { background: var(--warn); }
+.barwrap { font-family: -apple-system, system-ui, sans-serif; font-size: 0.88em; }
+.barwrap .lab { display: inline-block; width: 12.5em; }
+.barwrap .val { color: var(--muted); margin-left: 0.5em; }
+/* language toggle */
+.langbar { position: sticky; top: 0; z-index: 20; display: flex; justify-content: flex-end;
+           gap: 0.4em; padding: 0.5em 0; margin: -1em 0 0.5em; background: var(--bg);
+           font-family: -apple-system, system-ui, sans-serif; }
+.langbar button { border: 1px solid var(--line); background: white; color: var(--muted);
+                  padding: 3px 12px; border-radius: 14px; cursor: pointer; font-size: 0.85em; }
+.langbar button.active { background: var(--accent); color: white; border-color: var(--accent); font-weight: 600; }
+.lang { display: none; }
+html[data-lang="en"] .lang.en { display: block; }
+html[data-lang="ko"] .lang.ko { display: block; }
+</style>
+</head><body>
+<div class="langbar">
+  <button data-lang="en">EN</button>
+  <button data-lang="ko">한국어</button>
+</div>
+
+<div class="lang en">
+<header>
+  <div class="proj">CoC Criminalization &amp; PLE Engagement · Lee, Kim &amp; An, UCF</div>
+  <h1>Panel analysis results</h1>
+  <p class="lead">Does PLE engagement raise anti-criminalization activity, and does CoC leadership moderate it?</p>
+  <nav class="main"><a class="" href="index.html">Overview</a><a class="" href="data.html">Data &amp; pipeline</a><a class="" href="measurement.html">Measurement</a><a class="" href="descriptive.html">Descriptive stats</a><a class="" href="pilot.html">PLE coding</a><a class="active" href="results.html">Results</a><a class="" href="status.html">Status</a></nav>
+</header>
+
+<p class="lead">The panel analysis of the research question: does PLE engagement
+raise a CoC's anti-criminalization activity, and does CoC leadership moderate it?
+Linear panel model with year fixed effects and state-clustered SEs, estimated in R
+(<code>fixest</code>, script&nbsp;05); numbers read straight from its output.</p>
+
+<h2>The model</h2>
+<div style="overflow-x:auto;margin:1.5em 0">
+<svg viewBox="0 0 660 300" style="width:100%;max-width:660px;height:auto;font-family:-apple-system,system-ui,sans-serif">
+  <defs>
+    <marker id="ah" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#0366d6"/></marker>
+    <marker id="ahm" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#666"/></marker>
+  </defs>
+  <text x="330" y="30" text-anchor="middle" font-size="12" fill="#666">Controls: log(PIT) CoC size · Year fixed effects · state-clustered SE</text>
+  <rect x="40" y="108" width="185" height="74" rx="9" fill="#f0f6ff" stroke="#0366d6" stroke-width="1.5"/>
+  <text x="132" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#1a1a1a">PLE Engagement</text>
+  <text x="132" y="162" text-anchor="middle" font-size="11" fill="#666" font-family="monospace">ple_institution_null0</text>
+  <rect x="435" y="108" width="185" height="74" rx="9" fill="#f0faf3" stroke="#17813c" stroke-width="1.5"/>
+  <text x="527" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#1a1a1a">Anti-criminalization Activity</text>
+  <text x="527" y="162" text-anchor="middle" font-size="11" fill="#666" font-family="monospace">crim_activity_index</text>
+  <line x1="225" y1="145" x2="431" y2="145" stroke="#0366d6" stroke-width="2.5" marker-end="url(#ah)"/>
+  <text x="328" y="134" text-anchor="middle" font-size="14" font-weight="700" fill="#0366d6">B = 0.35**</text>
+  <rect x="235" y="230" width="190" height="54" rx="9" fill="#f7f7f7" stroke="#666" stroke-width="1.3"/>
+  <text x="330" y="253" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a1a">CoC Leadership</text>
+  <text x="330" y="271" text-anchor="middle" font-size="10.5" fill="#666" font-family="monospace">nonprofit_led — moderator</text>
+  <line x1="330" y1="230" x2="330" y2="151" stroke="#666" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#ahm)"/>
+  <text x="342" y="200" text-anchor="start" font-size="12" fill="#666">moderation B = 0.11 (n.s.)</text>
+</svg></div>
+
+<div class="findings-box">
+  <h3>What the panel model shows</h3>
+  <ul>
+    <li><strong>PLE engagement is positively associated with anti-criminalization
+    activity</strong> (B&nbsp;=&nbsp;0.35**). Moving across the full range of the PLE
+    index is associated with a large increase in the activity index — the core
+    hypothesis is supported.</li>
+    <li><strong>CoC leadership does not significantly moderate</strong> the effect
+    (PLE&nbsp;×&nbsp;nonprofit-led interaction is not significant), and its main
+    effect is ≈&nbsp;0. The PLE–activity link holds regardless of whether the CoC is
+    nonprofit- or government-led.</li>
+    <li><strong>Larger CoCs</strong> (higher log PIT) show modestly more activity.</li>
+  </ul>
+</div>
+
+<h2>Estimates</h2>
+<table><tr><th>Variable</th><th class="num">M1: Main</th><th class="num">M2: Moderation</th></tr><tr><td>PLE engagement index</td><td class="num">0.351**<br><span style="color:var(--muted);font-size:0.9em">(0.106)</span></td><td class="num">0.300*<br><span style="color:var(--muted);font-size:0.9em">(0.120)</span></td></tr><tr><td>Nonprofit-led (moderator)</td><td class="num">0.017<br><span style="color:var(--muted);font-size:0.9em">(0.022)</span></td><td class="num">-0.044<br><span style="color:var(--muted);font-size:0.9em">(0.084)</span></td></tr><tr><td>PLE × Nonprofit-led</td><td class="num">—</td><td class="num">0.112<br><span style="color:var(--muted);font-size:0.9em">(0.151)</span></td></tr><tr><td>log(PIT) — CoC size</td><td class="num">0.030**<br><span style="color:var(--muted);font-size:0.9em">(0.010)</span></td><td class="num">0.030**<br><span style="color:var(--muted);font-size:0.9em">(0.010)</span></td></tr><tr><td>Observations (CoC-years)</td><td class="num">607</td><td class="num">607</td></tr><tr><td>R²</td><td class="num">0.116</td><td class="num">0.117</td></tr><tr><td>Year fixed effects</td><td class="num">Yes</td><td class="num">Yes</td></tr><tr><td>Clustered SE</td><td class="num">state</td><td class="num">state</td></tr></table>
+<p class="lead" style="margin-top:0.4em">Cluster-robust SEs in parentheses.
+<code>†</code>&nbsp;p&lt;.10 · <code>*</code>&nbsp;p&lt;.05 ·
+<code>**</code>&nbsp;p&lt;.01 · <code>***</code>&nbsp;p&lt;.001. The DV is a 0–1
+share, so this is a linear-probability-style specification; a fractional-logit
+(Papke–Wooldridge) check is a natural robustness follow-up.</p>
+
+<div class="callout">
+  <div class="callout-title">Why year FE, not CoC FE</div>
+  <code>nonprofit_led</code> is time-invariant within a CoC, so CoC fixed effects
+  would absorb the moderator entirely. Year fixed effects with state-clustered SEs
+  keep the between-CoC leadership contrast identified while absorbing common
+  year shocks (including the HUD form reword).
+</div>
+
+<footer><strong>2026 rebuild.</strong> Standalone status site built locally from the August&nbsp;2026 R&nbsp;pipeline outputs (<code>coc_panel</code>, <code>coc_analysis_vars</code>, <code>03_descriptives</code>, <code>coc_leadership</code>, <code>pilot_coding_review</code>). Every figure verified against source on 2026-08-19. Separate from the deployed <code>docs/</code> site. Authors: Kyungmin&nbsp;Lee, Hanvit&nbsp;Kim &amp; Seongho&nbsp;An (University of Central Florida).</footer>
+</div>
+
+<div class="lang ko">
+<header>
+  <div class="proj">CoC 범죄화 &amp; PLE 참여 · Lee, Kim &amp; An, UCF</div>
+  <h1>패널 분석 결과</h1>
+  <p class="lead">PLE 참여가 반범죄화 활동을 높이는가, CoC 리더십이 이를 조절하는가?</p>
+  <nav class="main"><a class="" href="index.html">개요</a><a class="" href="data.html">데이터 · 파이프라인</a><a class="" href="measurement.html">측정</a><a class="" href="descriptive.html">기술통계</a><a class="" href="pilot.html">PLE 코딩</a><a class="active" href="results.html">결과</a><a class="" href="status.html">진행상황</a></nav>
+</header>
+
+<p class="lead">연구 질문에 대한 패널 분석: PLE 참여가 CoC의 반범죄화 활동을 높이는가,
+그리고 CoC 리더십이 이를 조절하는가? 연도 고정효과 + 주 클러스터 SE의 선형 패널
+모델을 R(<code>fixest</code>, script&nbsp;05)로 추정했으며, 숫자는 그 출력에서 직접
+읽습니다.</p>
+
+<h2>모형</h2>
+<div style="overflow-x:auto;margin:1.5em 0">
+<svg viewBox="0 0 660 300" style="width:100%;max-width:660px;height:auto;font-family:-apple-system,system-ui,sans-serif">
+  <defs>
+    <marker id="ah" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#0366d6"/></marker>
+    <marker id="ahm" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#666"/></marker>
+  </defs>
+  <text x="330" y="30" text-anchor="middle" font-size="12" fill="#666">통제: log(PIT) CoC 규모 · 연도 고정효과 · 주 클러스터 SE</text>
+  <rect x="40" y="108" width="185" height="74" rx="9" fill="#f0f6ff" stroke="#0366d6" stroke-width="1.5"/>
+  <text x="132" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#1a1a1a">PLE 참여</text>
+  <text x="132" y="162" text-anchor="middle" font-size="11" fill="#666" font-family="monospace">ple_institution_null0</text>
+  <rect x="435" y="108" width="185" height="74" rx="9" fill="#f0faf3" stroke="#17813c" stroke-width="1.5"/>
+  <text x="527" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#1a1a1a">반범죄화 활동</text>
+  <text x="527" y="162" text-anchor="middle" font-size="11" fill="#666" font-family="monospace">crim_activity_index</text>
+  <line x1="225" y1="145" x2="431" y2="145" stroke="#0366d6" stroke-width="2.5" marker-end="url(#ah)"/>
+  <text x="328" y="134" text-anchor="middle" font-size="14" font-weight="700" fill="#0366d6">B = 0.35**</text>
+  <rect x="235" y="230" width="190" height="54" rx="9" fill="#f7f7f7" stroke="#666" stroke-width="1.3"/>
+  <text x="330" y="253" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a1a">CoC 리더십</text>
+  <text x="330" y="271" text-anchor="middle" font-size="10.5" fill="#666" font-family="monospace">nonprofit_led — 조절변수</text>
+  <line x1="330" y1="230" x2="330" y2="151" stroke="#666" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#ahm)"/>
+  <text x="342" y="200" text-anchor="start" font-size="12" fill="#666">조절 B = 0.11 (유의하지 않음)</text>
+</svg></div>
+
+<div class="findings-box">
+  <h3>패널 모델 결과</h3>
+  <ul>
+    <li><strong>PLE 참여는 반범죄화 활동과 양(+)의 연관</strong>
+    (B&nbsp;=&nbsp;0.35**). PLE 지수 전 범위를 이동하면 활동 지수가 크게 상승 —
+    핵심 가설 지지.</li>
+    <li><strong>CoC 리더십의 조절효과는 유의하지 않음</strong>
+    (PLE&nbsp;×&nbsp;비영리 주도 상호작용 비유의), 주효과도 ≈&nbsp;0. 비영리든 정부
+    주도든 PLE–활동 관계는 유지됩니다.</li>
+    <li><strong>규모가 큰 CoC</strong>(log PIT 높음)일수록 활동이 다소 많음.</li>
+  </ul>
+</div>
+
+<h2>추정치</h2>
+<table><tr><th>변수</th><th class="num">M1: 주효과</th><th class="num">M2: 조절</th></tr><tr><td>PLE 참여 지수</td><td class="num">0.351**<br><span style="color:var(--muted);font-size:0.9em">(0.106)</span></td><td class="num">0.300*<br><span style="color:var(--muted);font-size:0.9em">(0.120)</span></td></tr><tr><td>비영리 주도 (조절)</td><td class="num">0.017<br><span style="color:var(--muted);font-size:0.9em">(0.022)</span></td><td class="num">-0.044<br><span style="color:var(--muted);font-size:0.9em">(0.084)</span></td></tr><tr><td>PLE × 비영리 주도</td><td class="num">—</td><td class="num">0.112<br><span style="color:var(--muted);font-size:0.9em">(0.151)</span></td></tr><tr><td>log(PIT) — CoC 규모</td><td class="num">0.030**<br><span style="color:var(--muted);font-size:0.9em">(0.010)</span></td><td class="num">0.030**<br><span style="color:var(--muted);font-size:0.9em">(0.010)</span></td></tr><tr><td>관측치 (CoC-연도)</td><td class="num">607</td><td class="num">607</td></tr><tr><td>R²</td><td class="num">0.116</td><td class="num">0.117</td></tr><tr><td>연도 고정효과</td><td class="num">Yes</td><td class="num">Yes</td></tr><tr><td>클러스터 SE</td><td class="num">주</td><td class="num">주</td></tr></table>
+<p class="lead" style="margin-top:0.4em">괄호는 클러스터-강건 SE.
+<code>†</code>&nbsp;p&lt;.10 · <code>*</code>&nbsp;p&lt;.05 ·
+<code>**</code>&nbsp;p&lt;.01 · <code>***</code>&nbsp;p&lt;.001. DV가 0–1 비율이라
+선형확률 유형 사양이며, 분수 로짓(Papke–Wooldridge) 점검이 자연스러운 강건성
+후속입니다.</p>
+
+<div class="callout">
+  <div class="callout-title">왜 CoC FE가 아니라 연도 FE인가</div>
+  <code>nonprofit_led</code>는 CoC 내에서 시간불변이라 CoC 고정효과를 쓰면 조절변수가
+  완전히 흡수됩니다. 연도 고정효과 + 주 클러스터 SE는 CoC 간 리더십 대비를 식별하면서
+  연도 공통 충격(HUD 양식 개정 포함)을 흡수합니다.
+</div>
+
+<footer><strong>2026 리빌드.</strong> 2026년 8월 R 파이프라인 산출물(<code>coc_panel</code>, <code>coc_analysis_vars</code>, <code>03_descriptives</code>, <code>coc_leadership</code>, <code>pilot_coding_review</code>)에서 로컬로 생성한 독립 현황 사이트입니다. 모든 수치는 2026-08-19에 원본과 대조해 검증했습니다. 배포 중인 <code>docs/</code> 사이트와는 별개입니다. 저자: Kyungmin&nbsp;Lee, Hanvit&nbsp;Kim &amp; Seongho&nbsp;An (University of Central Florida).</footer>
+</div>
+
+<script>
+(function(){
+  var KEY='coc_lang';
+  function set(l){
+    document.documentElement.setAttribute('data-lang',l);
+    try{localStorage.setItem(KEY,l);}catch(e){}
+    document.querySelectorAll('.langbar button').forEach(function(b){
+      b.classList.toggle('active', b.dataset.lang===l);
+    });
+    var t=document.querySelector('title[data-'+l+']');
+    var el=document.querySelector('title');
+    if(el){el.textContent=el.getAttribute('data-'+l)||el.textContent;}
+  }
+  var saved='en';
+  try{saved=localStorage.getItem(KEY)||'en';}catch(e){}
+  document.addEventListener('DOMContentLoaded',function(){
+    set(saved);
+    document.querySelectorAll('.langbar button').forEach(function(b){
+      b.addEventListener('click',function(){set(b.dataset.lang);});
+    });
+  });
+  document.documentElement.setAttribute('data-lang',saved);
+})();
+</script>
+</body></html>
