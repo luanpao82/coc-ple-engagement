@@ -117,10 +117,10 @@ homelessness — refreshed to reflect the August&nbsp;2026 working session.</p>
   <div class="callout-title">What this site is</div>
   This is a <strong>separate rebuild</strong> reflecting the August&nbsp;2026 R
   pipeline: the merged manual coding, the 650&nbsp;&times;&nbsp;320 analysis panel,
-  the measurement frame, and the validated Stage&nbsp;3 coding pilot. The
-  regression estimates for the moderation model are <strong>not yet run</strong>
-  (script&nbsp;04 is pending), so this site reports data construction, measurement,
-  and descriptive evidence — not final results.
+  the measurement frame, the 15-indicator coding of <strong>all 620 CoC-years</strong>,
+  and the <strong>panel model</strong> (PLE engagement &rarr; anti-criminalization
+  activity, moderated by CoC leadership). Every figure is read straight from the R
+  pipeline outputs.
 </div>
 
 <h2>The study</h2>
@@ -142,7 +142,7 @@ structure and PLE engagement from annual HUD CoC application materials
   <div class="stat"><div class="label">Analysis panel</div><div class="value">650</div></div>
   <div class="stat"><div class="label">Panel columns</div><div class="value">320</div></div>
   <div class="stat"><div class="label">Unique CoCs</div><div class="value">320</div></div>
-  <div class="stat"><div class="label">Pilot CoC-years coded</div><div class="value">24</div></div>
+  <div class="stat"><div class="label">PLE CoC-years coded</div><div class="value">620</div></div>
 </div>
 
 <div class="findings-box">
@@ -154,9 +154,12 @@ structure and PLE engagement from annual HUD CoC application materials
     <li><strong>Analysis panel built in R.</strong> A three-script pipeline
     produces a 650&nbsp;CoC-year &times; 320-column panel and the model-role
     variables (DV, PLE-engagement counts, leadership, size control).</li>
-    <li><strong>Coding frame piloted and validated.</strong> The 15-indicator
-    PLE-engagement schema was coded on a stratified 24-case pilot; all 232
-    supporting quotations verify exactly and double-coding agreement is 91.7%.</li>
+    <li><strong>Full-corpus PLE coding.</strong> The 15-indicator schema was
+    coded on all <strong>620 CoC-years</strong> (Sonnet, strict definitions),
+    validated against the 24-case pilot (~86% agreement).</li>
+    <li><strong>Panel model estimated.</strong> PLE engagement is positively
+    associated with anti-criminalization activity (B&nbsp;=&nbsp;0.35, p&lt;.01);
+    CoC leadership does not significantly moderate it.</li>
   </ul>
 </div>
 
@@ -174,8 +177,11 @@ structure and PLE engagement from annual HUD CoC application materials
     <p>Verified distributions for the analysis variables, the year-by-year
     rise in anti-criminalization activity, and the leadership split.</p></a>
   <a class="hub-card" href="pilot.html"><h3>PLE coding</h3>
-    <p>24 CoC-years coded on the 15-indicator frame, per-indicator hit rates,
-    domain composites, and the evidence / reliability validation.</p></a>
+    <p>All 620 CoC-years coded on the 15-indicator frame, per-indicator rates,
+    domain composites, and validation against the pilot.</p></a>
+  <a class="hub-card" href="results.html"><h3>Results</h3>
+    <p>The panel model and its conceptual diagram: PLE engagement &rarr;
+    anti-criminalization activity, moderated by CoC leadership.</p></a>
 </div>
 
 <footer><strong>2026 rebuild.</strong> Standalone status site built locally from the August&nbsp;2026 R&nbsp;pipeline outputs (<code>coc_panel</code>, <code>coc_analysis_vars</code>, <code>03_descriptives</code>, <code>coc_leadership</code>, <code>pilot_coding_review</code>). Every figure verified against source on 2026-08-19. Separate from the deployed <code>docs/</code> site. Authors: Kyungmin&nbsp;Lee, Hanvit&nbsp;Kim &amp; Seongho&nbsp;An (University of Central Florida).</footer>
@@ -197,9 +203,9 @@ experience)</strong>를 어떻게 참여시키는지, 그리고 그 참여가 �
 <div class="callout">
   <div class="callout-title">이 사이트는</div>
   2026년 8월 R 파이프라인을 반영한 <strong>별도 리빌드</strong>입니다: 수기 코딩 병합,
-  650&nbsp;&times;&nbsp;320 분석 패널, 측정 프레임, 검증된 Stage&nbsp;3 코딩 파일럿.
-  모더레이션 모델의 회귀 추정치는 <strong>아직 산출되지 않았으므로</strong>(script&nbsp;04
-  대기 중), 이 사이트는 최종 결과가 아니라 데이터 구축·측정·기술통계 근거를 보고합니다.
+  650&nbsp;&times;&nbsp;320 분석 패널, 측정 프레임, <strong>620 CoC-연도 전량</strong>의
+  15개 지표 코딩, 그리고 <strong>패널 모델</strong>(PLE 참여 &rarr; 반범죄화 활동, CoC
+  리더십 조절). 모든 수치는 R 파이프라인 출력에서 직접 읽습니다.
 </div>
 
 <h2>연구 개요</h2>
@@ -221,7 +227,7 @@ Criminalization.</em> 이 프로젝트는 HUD CoC 연례 신청 자료(FY2022–
   <div class="stat"><div class="label">분석 패널</div><div class="value">650</div></div>
   <div class="stat"><div class="label">패널 열</div><div class="value">320</div></div>
   <div class="stat"><div class="label">고유 CoC</div><div class="value">320</div></div>
-  <div class="stat"><div class="label">파일럿 코딩 CoC-연도</div><div class="value">24</div></div>
+  <div class="stat"><div class="label">PLE 코딩 CoC-연도</div><div class="value">620</div></div>
 </div>
 
 <div class="findings-box">
@@ -232,9 +238,11 @@ Criminalization.</em> 이 프로젝트는 HUD CoC 연례 신청 자료(FY2022–
     <li><strong>분석 패널을 R로 구축.</strong> 3개 스크립트 파이프라인이
     650 CoC-연도 &times; 320열 패널과 모델 역할 변수(DV, PLE 참여 수, 리더십, 규모
     통제변수)를 생성.</li>
-    <li><strong>코딩 프레임 파일럿·검증.</strong> 15개 지표 PLE 참여 스키마를 층화
-    추출한 24케이스에 적용; 근거 인용문 232개 전량이 정확히 일치하고 이중코딩 일치율은
-    91.7%.</li>
+    <li><strong>전체 코퍼스 PLE 코딩.</strong> 15개 지표 스키마를
+    <strong>620 CoC-연도 전량</strong>에 적용(Sonnet·엄격 정의), 24케이스 파일럿 대비
+    ~86% 일치로 검증.</li>
+    <li><strong>패널 모델 추정.</strong> PLE 참여가 반범죄화 활동과 양(+)의 연관
+    (B&nbsp;=&nbsp;0.35, p&lt;.01); CoC 리더십 조절효과는 유의하지 않음.</li>
   </ul>
 </div>
 
@@ -249,8 +257,10 @@ Criminalization.</em> 이 프로젝트는 HUD CoC 연례 신청 자료(FY2022–
   <a class="hub-card" href="descriptive.html"><h3>기술통계</h3>
     <p>분석 변수의 검증된 분포, 반범죄화 활동의 연도별 상승, 리더십 구분.</p></a>
   <a class="hub-card" href="pilot.html"><h3>PLE 코딩</h3>
-    <p>15개 지표 프레임으로 코딩한 24 CoC-연도, 지표별 적중률, 도메인 합성지수,
-    근거 · 신뢰도 검증.</p></a>
+    <p>620 CoC-연도 전량을 15개 지표 프레임으로 코딩, 지표별 비율, 도메인 합성지수,
+    파일럿 대비 검증.</p></a>
+  <a class="hub-card" href="results.html"><h3>결과</h3>
+    <p>패널 모델과 모형 그림: PLE 참여 &rarr; 반범죄화 활동, CoC 리더십 조절.</p></a>
 </div>
 
 <footer><strong>2026 리빌드.</strong> 2026년 8월 R 파이프라인 산출물(<code>coc_panel</code>, <code>coc_analysis_vars</code>, <code>03_descriptives</code>, <code>coc_leadership</code>, <code>pilot_coding_review</code>)에서 로컬로 생성한 독립 현황 사이트입니다. 모든 수치는 2026-08-19에 원본과 대조해 검증했습니다. 배포 중인 <code>docs/</code> 사이트와는 별개입니다. 저자: Kyungmin&nbsp;Lee, Hanvit&nbsp;Kim &amp; Seongho&nbsp;An (University of Central Florida).</footer>
