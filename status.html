@@ -104,19 +104,26 @@ html[data-lang="ko"] .lang.ko { display: block; }
 <header>
   <div class="proj">CoC Criminalization &amp; PLE Engagement · Lee, Kim &amp; An, UCF</div>
   <h1>Status &amp; next steps</h1>
-  <p class="lead">What the August 2026 session shipped, and what remains.</p>
+  <p class="lead">What has been done through October 2026, and what remains.</p>
   <nav class="main"><a class="" href="index.html">Overview</a><a class="" href="data.html">Data &amp; pipeline</a><a class="" href="measurement.html">Measurement</a><a class="" href="descriptive.html">Descriptive stats</a><a class="" href="pilot.html">PLE coding</a><a class="" href="results.html">Results</a><a class="active" href="status.html">Status</a></nav>
 </header>
 
 <h2>Done</h2>
-<table><tr><th>Item</th><th>Status</th></tr><tr><td>Manual remediation coding merged (383 cells, 24 CoC-years, audit-logged)</td><td><span class="badge good">done</span></td></tr><tr><td>FY2022 1D-11a crosswalk verified and applied</td><td><span class="badge good">done</span></td></tr><tr><td>Analysis panel built in R (650 &times; 320)</td><td><span class="badge good">done</span></td></tr><tr><td>DV, PLE-engagement counts, leadership, PIT size control constructed</td><td><span class="badge good">done</span></td></tr><tr><td>Stage 3 coding frame piloted (24 cases, Opus) and validated</td><td><span class="badge good">done</span></td></tr><tr><td>Full-corpus PLE coding — 620 CoC-years (Sonnet, strict definitions)</td><td><span class="badge good">done</span></td></tr><tr><td>PLE codes joined to the panel (script 04 &rarr; coc_analysis_final)</td><td><span class="badge good">done</span></td></tr><tr><td>Moderation model estimated on coc_analysis_final</td><td><span class="badge">pending</span></td></tr></table>
+<table><tr><th>Item</th><th>Status</th></tr><tr><td>Manual remediation coding merged (383 cells, 24 CoC-years, audit-logged)</td><td><span class="badge good">done</span></td></tr><tr><td>FY2022 1D-11a crosswalk verified and applied</td><td><span class="badge good">done</span></td></tr><tr><td>Analysis panel built in R (650 &times; 320)</td><td><span class="badge good">done</span></td></tr><tr><td>DV, PLE-engagement counts, leadership, PIT size control constructed</td><td><span class="badge good">done</span></td></tr><tr><td>Stage 3 coding frame piloted (24 cases, Opus) and validated</td><td><span class="badge good">done</span></td></tr><tr><td>Full-corpus PLE coding — 620 CoC-years (Sonnet, strict definitions)</td><td><span class="badge good">done</span></td></tr><tr><td>PLE codes joined to the panel (script 04 &rarr; coc_analysis_final)</td><td><span class="badge good">done</span></td></tr><tr><td>Panel and moderation models estimated (script 05: M1–M2)</td><td><span class="badge good">done</span></td></tr><tr><td>PLE index split into three domains (script 06: M3–M4, sensitivity checks)</td><td><span class="badge good">done</span></td></tr><tr><td>DV harmonized: same six 1D-4 cells every year, blank cells = No (2026-10-02)</td><td><span class="badge good">done</span></td></tr></table>
 
 <h2>Open items</h2>
 <ol class="step-list">
-  <li><strong>Estimate the moderation model.</strong> Run
-  <code>crim_activity_index ~ ple_institution_null0 * nonprofit_led + log_pit_overall
-  | coc_id + year</code> on <code>coc_analysis_final</code> (raw
-  cor(DV, PLE index) = 0.284 is the descriptive signal).</li>
+  <li><strong>Robustness before submission.</strong> Fractional logit,
+  wild-cluster bootstrap <em>p</em>-values (54 state clusters), a Mundlak /
+  correlated-random-effects check, estimates separately for the FY2022–23 and FY2024
+  versions of 1D-4, and checks for reporting breadth (narrative length; a placebo
+  yes/no item). Raw cor(DV, PLE index) =
+  0.294.</li>
+  <li><strong>Human validation of the LLM coding.</strong> Code a random sample by
+  hand with the final definitions and report Krippendorff&rsquo;s &alpha; / Cohen&rsquo;s
+  &kappa; per indicator.</li>
+  <li><strong>Check three partly blank 1D-4 charts.</strong> GU-500, LA-502 and
+  VA-508 (FY2024) have blank cells now scored No; confirm against the source PDFs.</li>
   <li><strong>Coauthor sign-off on the coding frame.</strong> Confirm the ceiling
   indicators (<code>mechanism_formal</code>, <code>training_pipeline</code>) and
   the near-floor <code>closes_the_loop</code>; the
@@ -128,32 +135,36 @@ html[data-lang="ko"] .lang.ko { display: block; }
 
 <div class="callout">
   <div class="callout-title">A note on this site vs the deployed one</div>
-  This 2026 rebuild is a standalone status page built from the August R outputs.
-  The live <code>docs/</code> site (built by
+  This 2026 rebuild is a standalone status site built from the R pipeline outputs.
+  The live <code>docs/</code> site of the main project (built by
   <code>data_pipeline/build_site.py</code>) still reflects the earlier
-  Python-pipeline analysis, including regression results this rebuild does not yet
-  carry. The two are intentionally kept separate until the moderation model is run.
+  Python-pipeline analysis; the two are kept separate.
 </div>
 
-<footer><strong>2026 rebuild.</strong> Standalone status site built locally from the August&nbsp;2026 R&nbsp;pipeline outputs (<code>coc_panel</code>, <code>coc_analysis_vars</code>, <code>03_descriptives</code>, <code>coc_leadership</code>, <code>pilot_coding_review</code>). Every figure verified against source on 2026-08-19. Separate from the deployed <code>docs/</code> site. Authors: Kyungmin&nbsp;Lee, Hanvit&nbsp;Kim &amp; Seongho&nbsp;An (University of Central Florida).</footer>
+<footer><strong>2026 rebuild.</strong> Standalone status site built from the R&nbsp;pipeline outputs, August–October&nbsp;2026 (<code>coc_panel</code>, <code>coc_analysis_vars</code>, <code>04_descriptives_final</code>, <code>05_model_results</code>, <code>06_domain_models</code>, <code>coc_leadership</code>, <code>pilot_coding_review</code>). Figures are read from or checked against those outputs; last updated 2026-10-02. Separate from the deployed <code>docs/</code> site. Authors: Kyungmin&nbsp;Lee, Hanvit&nbsp;Kim &amp; Seongho&nbsp;An (University of Central Florida).</footer>
 </div>
 
 <div class="lang ko">
 <header>
   <div class="proj">CoC 범죄화 &amp; PLE 참여 · Lee, Kim &amp; An, UCF</div>
   <h1>진행상황 및 다음 단계</h1>
-  <p class="lead">2026년 8월 세션이 완료한 것과 남은 것.</p>
+  <p class="lead">2026년 10월까지 완료한 것과 남은 것.</p>
   <nav class="main"><a class="" href="index.html">개요</a><a class="" href="data.html">데이터 · 파이프라인</a><a class="" href="measurement.html">측정</a><a class="" href="descriptive.html">기술통계</a><a class="" href="pilot.html">PLE 코딩</a><a class="" href="results.html">결과</a><a class="active" href="status.html">진행상황</a></nav>
 </header>
 
 <h2>완료</h2>
-<table><tr><th>항목</th><th>상태</th></tr><tr><td>수기 보강 코딩 병합 (383셀, 24 CoC-연도, 감사 로그)</td><td><span class="badge good">완료</span></td></tr><tr><td>FY2022 1D-11a 크로스워크 검증·적용</td><td><span class="badge good">완료</span></td></tr><tr><td>R로 분석 패널 구축 (650 &times; 320)</td><td><span class="badge good">완료</span></td></tr><tr><td>DV, PLE 참여 수, 리더십, PIT 규모 통제변수 구성</td><td><span class="badge good">완료</span></td></tr><tr><td>Stage 3 코딩 프레임 파일럿(24케이스, Opus)·검증</td><td><span class="badge good">완료</span></td></tr><tr><td>전체 코퍼스 PLE 코딩 — 620 CoC-연도 (Sonnet·엄격 정의)</td><td><span class="badge good">완료</span></td></tr><tr><td>PLE 코드를 패널에 결합 (script 04 &rarr; coc_analysis_final)</td><td><span class="badge good">완료</span></td></tr><tr><td>coc_analysis_final에서 모더레이션 모델 추정</td><td><span class="badge">대기</span></td></tr></table>
+<table><tr><th>항목</th><th>상태</th></tr><tr><td>수기 보강 코딩 병합 (383셀, 24 CoC-연도, 감사 로그)</td><td><span class="badge good">완료</span></td></tr><tr><td>FY2022 1D-11a 크로스워크 검증·적용</td><td><span class="badge good">완료</span></td></tr><tr><td>R로 분석 패널 구축 (650 &times; 320)</td><td><span class="badge good">완료</span></td></tr><tr><td>DV, PLE 참여 수, 리더십, PIT 규모 통제변수 구성</td><td><span class="badge good">완료</span></td></tr><tr><td>Stage 3 코딩 프레임 파일럿(24케이스, Opus)·검증</td><td><span class="badge good">완료</span></td></tr><tr><td>전체 코퍼스 PLE 코딩 — 620 CoC-연도 (Sonnet·엄격 정의)</td><td><span class="badge good">완료</span></td></tr><tr><td>PLE 코드를 패널에 결합 (script 04 &rarr; coc_analysis_final)</td><td><span class="badge good">완료</span></td></tr><tr><td>패널·모더레이션 모델 추정 (script 05: M1–M2)</td><td><span class="badge good">완료</span></td></tr><tr><td>PLE 지수 3개 도메인 분해 (script 06: M3–M4, 민감도 점검)</td><td><span class="badge good">완료</span></td></tr><tr><td>DV 통일: 모든 연도 동일한 1D-4 6칸, 빈칸 = No (2026-10-02)</td><td><span class="badge good">완료</span></td></tr></table>
 
 <h2>미해결 항목</h2>
 <ol class="step-list">
-  <li><strong>모더레이션 모델 추정.</strong> <code>coc_analysis_final</code>에서
-  <code>crim_activity_index ~ ple_institution_null0 * nonprofit_led + log_pit_overall
-  | coc_id + year</code> 실행 (원자료 상관 cor(DV, PLE 지수) = 0.284가 예비 신호).</li>
+  <li><strong>투고 전 강건성 점검.</strong> 분수 로짓, wild-cluster bootstrap
+  <em>p</em>값(주 클러스터 54개), Mundlak(상관 확률효과) 점검, 1D-4 문항 버전별
+  (FY2022–23 / FY2024) 분리 추정, 보고 성향 점검(내러티브 길이, 위약 문항). 원자료 상관
+  cor(DV, PLE 지수) = 0.294.</li>
+  <li><strong>LLM 코딩의 사람 검증.</strong> 최종 정의로 무작위 표본을 사람이 코딩해 지표별
+  Krippendorff &alpha; / Cohen &kappa; 보고.</li>
+  <li><strong>부분 공란 1D-4 표 3건 확인.</strong> GU-500, LA-502, VA-508(FY2024)의 빈칸은
+  현재 No로 처리 — 원본 PDF로 확인.</li>
   <li><strong>공저자 코딩 프레임 승인.</strong> 천장 지표
   (<code>mechanism_formal</code>, <code>training_pipeline</code>)와 준바닥
   <code>closes_the_loop</code> 확인; <code>addresses_barriers</code> 정의는 이미
@@ -164,13 +175,12 @@ html[data-lang="ko"] .lang.ko { display: block; }
 
 <div class="callout">
   <div class="callout-title">이 사이트 vs 배포 사이트</div>
-  이 2026 리빌드는 8월 R 산출물로 만든 독립 현황 페이지입니다. 라이브
-  <code>docs/</code> 사이트(<code>data_pipeline/build_site.py</code>로 생성)는 여전히
-  이전 Python 파이프라인 분석을 반영하며, 이 리빌드가 아직 담지 않은 회귀 결과를
-  포함합니다. 모더레이션 모델이 돌아갈 때까지 둘은 의도적으로 분리해 둡니다.
+  이 2026 리빌드는 R 파이프라인 산출물로 만든 독립 현황 사이트입니다. 본 프로젝트의
+  라이브 <code>docs/</code> 사이트(<code>data_pipeline/build_site.py</code>로 생성)는
+  여전히 이전 Python 파이프라인 분석을 반영하며, 둘은 분리해 둡니다.
 </div>
 
-<footer><strong>2026 리빌드.</strong> 2026년 8월 R 파이프라인 산출물(<code>coc_panel</code>, <code>coc_analysis_vars</code>, <code>03_descriptives</code>, <code>coc_leadership</code>, <code>pilot_coding_review</code>)에서 로컬로 생성한 독립 현황 사이트입니다. 모든 수치는 2026-08-19에 원본과 대조해 검증했습니다. 배포 중인 <code>docs/</code> 사이트와는 별개입니다. 저자: Kyungmin&nbsp;Lee, Hanvit&nbsp;Kim &amp; Seongho&nbsp;An (University of Central Florida).</footer>
+<footer><strong>2026 리빌드.</strong> 2026년 8–10월 R 파이프라인 산출물(<code>coc_panel</code>, <code>coc_analysis_vars</code>, <code>04_descriptives_final</code>, <code>05_model_results</code>, <code>06_domain_models</code>, <code>coc_leadership</code>, <code>pilot_coding_review</code>)에서 생성한 독립 현황 사이트입니다. 수치는 이 산출물에서 읽거나 대조했으며, 최종 갱신일은 2026-10-02입니다. 배포 중인 <code>docs/</code> 사이트와는 별개입니다. 저자: Kyungmin&nbsp;Lee, Hanvit&nbsp;Kim &amp; Seongho&nbsp;An (University of Central Florida).</footer>
 </div>
 
 <script>

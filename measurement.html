@@ -111,16 +111,20 @@ html[data-lang="ko"] .lang.ko { display: block; }
 <h2>Dependent variable: anti-criminalization activity</h2>
 <p>The DV, <code>crim_activity_index</code>, is built from the HUD
 <strong>1D-4</strong> chart on how the CoC works to prevent the criminalization
-of homelessness. Only rows&nbsp;1–3 are kept in every year so the index is
-comparable across the FY2023&rarr;FY2024 reword. Two component indicators enter
-the index:</p>
+of homelessness. In every year the index uses rows&nbsp;1–3 &times; 2 columns
+= <strong>6 cells</strong> (the FY2022–23 row&nbsp;4, captured only for manually coded
+files, is not used). It is the share of the 6 cells answered Yes: a partly blank chart
+counts blank cells as No (denominator always 6); a chart with all 6 cells blank is
+missing. The rows and columns changed in FY2024, so the models use year fixed effects.
+The two columns as sub-indices (each averages its non-blank cells, so they need
+not average exactly to the index):</p>
 <table>
   <tr><th>Component</th><th>Meaning</th><th class="num">Mean</th></tr>
-  <tr><td><code>dv_policymakers</code></td><td>Engaged / educated policymakers on criminalization</td><td class="num">0.941</td></tr>
-  <tr><td><code>dv_prevent_crim</code></td><td>Implemented laws/policies to prevent criminalization</td><td class="num">0.577</td></tr>
-  <tr><td><code>crim_activity_index</code></td><td>Row-1–3 activity index (0–1)</td><td class="num">0.759</td></tr>
+  <tr><td><code>dv_policymakers</code></td><td>Column 1 — engaged / educated (FY22–23: ensure not criminalized)</td><td class="num">0.941</td></tr>
+  <tr><td><code>dv_prevent_crim</code></td><td>Column 2 — reverse policies (FY22–23) / implemented laws &amp; policies (FY24)</td><td class="num">0.577</td></tr>
+  <tr><td><code>crim_activity_index</code></td><td>Activity index, 6 cells (0–1)</td><td class="num">0.757</td></tr>
 </table>
-<p class="lead">Overall index mean 0.759 (SD 0.271, n&nbsp;=&nbsp;634). The
+<p class="lead">Overall index mean 0.757 (SD 0.271, n&nbsp;=&nbsp;634). The
 year-by-year rise is shown on the <a href="descriptive.html">descriptive
 page</a>.</p>
 
@@ -163,7 +167,7 @@ from <code>code_iv_leadership.py</code>. Of 320 unique CoCs:</p>
 <p class="lead">18 CoCs are additionally flagged <code>needs_review</code> for
 coauthor confirmation of the lead-agency assignment.</p>
 
-<footer><strong>2026 rebuild.</strong> Standalone status site built locally from the August&nbsp;2026 R&nbsp;pipeline outputs (<code>coc_panel</code>, <code>coc_analysis_vars</code>, <code>03_descriptives</code>, <code>coc_leadership</code>, <code>pilot_coding_review</code>). Every figure verified against source on 2026-08-19. Separate from the deployed <code>docs/</code> site. Authors: Kyungmin&nbsp;Lee, Hanvit&nbsp;Kim &amp; Seongho&nbsp;An (University of Central Florida).</footer>
+<footer><strong>2026 rebuild.</strong> Standalone status site built from the R&nbsp;pipeline outputs, August–October&nbsp;2026 (<code>coc_panel</code>, <code>coc_analysis_vars</code>, <code>04_descriptives_final</code>, <code>05_model_results</code>, <code>06_domain_models</code>, <code>coc_leadership</code>, <code>pilot_coding_review</code>). Figures are read from or checked against those outputs; last updated 2026-10-02. Separate from the deployed <code>docs/</code> site. Authors: Kyungmin&nbsp;Lee, Hanvit&nbsp;Kim &amp; Seongho&nbsp;An (University of Central Florida).</footer>
 </div>
 
 <div class="lang ko">
@@ -176,16 +180,19 @@ coauthor confirmation of the lead-agency assignment.</p>
 
 <h2>종속변수: 반범죄화 활동</h2>
 <p>DV인 <code>crim_activity_index</code>는 CoC가 노숙 범죄화를 예방하기 위해 어떻게
-활동하는지를 묻는 HUD <strong>1D-4</strong> 표에서 구성됩니다. 지수가 FY2023&rarr;FY2024
-문항 개정에도 비교 가능하도록 매년 행&nbsp;1–3만 유지합니다. 두 개의 구성 지표가
-지수에 들어갑니다:</p>
+활동하는지를 묻는 HUD <strong>1D-4</strong> 표에서 구성됩니다.
+모든 연도에서 1–3행 &times; 2열 = <strong>6칸</strong>을 씁니다(FY2022–23의 4행은 수기
+코딩 파일에만 있어 사용하지 않음). 6칸 중 Yes 비율이며, 일부 칸이 빈 표는 빈칸을 No로
+보고(분모는 항상 6), 6칸이 모두 빈 경우는 결측입니다. FY2024에 행과 열이 바뀌어
+모형은 연도 고정효과를 씁니다. 두 열을 하위 지수로 보면(각 열은 빈칸을 뺀 칸의
+평균이라 둘의 평균이 지수와 정확히 같지는 않음):</p>
 <table>
   <tr><th>구성 요소</th><th>의미</th><th class="num">평균</th></tr>
-  <tr><td><code>dv_policymakers</code></td><td>범죄화 관련 정책결정자 참여 · 교육</td><td class="num">0.941</td></tr>
-  <tr><td><code>dv_prevent_crim</code></td><td>범죄화 예방을 위한 법·정책 시행</td><td class="num">0.577</td></tr>
-  <tr><td><code>crim_activity_index</code></td><td>행 1–3 활동 지수 (0–1)</td><td class="num">0.759</td></tr>
+  <tr><td><code>dv_policymakers</code></td><td>1열 — 참여·교육 (FY22–23: 범죄화 방지)</td><td class="num">0.941</td></tr>
+  <tr><td><code>dv_prevent_crim</code></td><td>2열 — 기존 정책 철회 (FY22–23) / 법·정책 시행 (FY24)</td><td class="num">0.577</td></tr>
+  <tr><td><code>crim_activity_index</code></td><td>활동 지수, 6칸 (0–1)</td><td class="num">0.757</td></tr>
 </table>
-<p class="lead">전체 지수 평균 0.759 (SD 0.271, n&nbsp;=&nbsp;634). 연도별 상승은
+<p class="lead">전체 지수 평균 0.757 (SD 0.271, n&nbsp;=&nbsp;634). 연도별 상승은
 <a href="descriptive.html">기술통계 페이지</a>에 있습니다.</p>
 
 <h2>핵심 구성개념: PLE 참여</h2>
@@ -224,7 +231,7 @@ coauthor confirmation of the lead-agency assignment.</p>
 <p class="lead">추가로 18개 CoC가 주관기관 배정에 대한 공저자 확인을 위해
 <code>needs_review</code>로 플래그됩니다.</p>
 
-<footer><strong>2026 리빌드.</strong> 2026년 8월 R 파이프라인 산출물(<code>coc_panel</code>, <code>coc_analysis_vars</code>, <code>03_descriptives</code>, <code>coc_leadership</code>, <code>pilot_coding_review</code>)에서 로컬로 생성한 독립 현황 사이트입니다. 모든 수치는 2026-08-19에 원본과 대조해 검증했습니다. 배포 중인 <code>docs/</code> 사이트와는 별개입니다. 저자: Kyungmin&nbsp;Lee, Hanvit&nbsp;Kim &amp; Seongho&nbsp;An (University of Central Florida).</footer>
+<footer><strong>2026 리빌드.</strong> 2026년 8–10월 R 파이프라인 산출물(<code>coc_panel</code>, <code>coc_analysis_vars</code>, <code>04_descriptives_final</code>, <code>05_model_results</code>, <code>06_domain_models</code>, <code>coc_leadership</code>, <code>pilot_coding_review</code>)에서 생성한 독립 현황 사이트입니다. 수치는 이 산출물에서 읽거나 대조했으며, 최종 갱신일은 2026-10-02입니다. 배포 중인 <code>docs/</code> 사이트와는 별개입니다. 저자: Kyungmin&nbsp;Lee, Hanvit&nbsp;Kim &amp; Seongho&nbsp;An (University of Central Florida).</footer>
 </div>
 
 <script>
