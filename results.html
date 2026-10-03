@@ -111,7 +111,7 @@ html[data-lang="ko"] .lang.ko { display: block; }
 <p class="lead">The panel analysis of the research question: does PLE engagement
 raise a CoC's anti-criminalization activity, and does CoC leadership moderate it?
 Linear panel model with year fixed effects and state-clustered SEs, estimated in R
-(<code>fixest</code>, script&nbsp;05); numbers read straight from its output.</p>
+(<code>fixest</code>, scripts&nbsp;05–06); numbers read straight from their output.</p>
 
 <h2>The model</h2>
 <div style="overflow-x:auto;margin:1.5em 0">
@@ -145,36 +145,32 @@ Linear panel model with year fixed effects and state-clustered SEs, estimated in
     activity</strong> (B&nbsp;=&nbsp;0.35**). Moving across the full range of the PLE
     index is associated with a large increase in the activity index — the core
     hypothesis is supported.</li>
-    <li><strong>CoC leadership does not significantly moderate</strong> the effect
-    (PLE&nbsp;×&nbsp;nonprofit-led interaction is not significant), and its main
-    effect is ≈&nbsp;0. The PLE–activity link holds regardless of whether the CoC is
-    nonprofit- or government-led.</li>
+    <li>For the overall index (M1–M2), <strong>CoC leadership does not
+    significantly moderate</strong> the effect (PLE&nbsp;×&nbsp;nonprofit-led
+    interaction is not significant), and its main effect is ≈&nbsp;0. Domain-level
+    interactions (M4) are mixed — see below.</li>
     <li><strong>Larger CoCs</strong> (higher log PIT) show modestly more activity.</li>
   </ul>
 </div>
 
 <h2>Estimates</h2>
-<table><tr><th>Variable</th><th class="num">M1: Main</th><th class="num">M2: Moderation</th></tr><tr><td>PLE engagement index</td><td class="num">0.351**<br><span style="color:var(--muted);font-size:0.9em">(0.106)</span></td><td class="num">0.300*<br><span style="color:var(--muted);font-size:0.9em">(0.120)</span></td></tr><tr><td>Nonprofit-led (moderator)</td><td class="num">0.017<br><span style="color:var(--muted);font-size:0.9em">(0.022)</span></td><td class="num">-0.044<br><span style="color:var(--muted);font-size:0.9em">(0.084)</span></td></tr><tr><td>PLE × Nonprofit-led</td><td class="num">—</td><td class="num">0.112<br><span style="color:var(--muted);font-size:0.9em">(0.151)</span></td></tr><tr><td>log(PIT) — CoC size</td><td class="num">0.030**<br><span style="color:var(--muted);font-size:0.9em">(0.010)</span></td><td class="num">0.030**<br><span style="color:var(--muted);font-size:0.9em">(0.010)</span></td></tr><tr><td>Observations (CoC-years)</td><td class="num">607</td><td class="num">607</td></tr><tr><td>R²</td><td class="num">0.116</td><td class="num">0.117</td></tr><tr><td>Year fixed effects</td><td class="num">Yes</td><td class="num">Yes</td></tr><tr><td>Clustered SE</td><td class="num">state</td><td class="num">state</td></tr></table>
+<div style="overflow-x:auto"><table><tr><th>Variable</th><th class="num">M1: Main</th><th class="num">M2: Moderation</th><th class="num">M3: Domains</th><th class="num">M4: Domains × leadership</th></tr><tr><td>PLE engagement index</td><td class="num">0.351**<br><span style="color:var(--muted);font-size:0.9em">(0.106)</span></td><td class="num">0.300*<br><span style="color:var(--muted);font-size:0.9em">(0.120)</span></td><td class="num"></td><td class="num"></td></tr><tr><td>PLE × Nonprofit-led</td><td class="num"></td><td class="num">0.112<br><span style="color:var(--muted);font-size:0.9em">(0.151)</span></td><td class="num"></td><td class="num"></td></tr><tr><td>Umbrella — structural inclusion</td><td class="num"></td><td class="num"></td><td class="num">0.131*<br><span style="color:var(--muted);font-size:0.9em">(0.051)</span></td><td class="num">0.097<br><span style="color:var(--muted);font-size:0.9em">(0.088)</span></td></tr><tr><td>Professional development</td><td class="num"></td><td class="num"></td><td class="num">0.010<br><span style="color:var(--muted);font-size:0.9em">(0.082)</span></td><td class="num">-0.061<br><span style="color:var(--muted);font-size:0.9em">(0.076)</span></td></tr><tr><td>Feedback</td><td class="num"></td><td class="num"></td><td class="num">0.255***<br><span style="color:var(--muted);font-size:0.9em">(0.064)</span></td><td class="num">0.379***<br><span style="color:var(--muted);font-size:0.9em">(0.097)</span></td></tr><tr><td>Umbrella × Nonprofit-led</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">0.075<br><span style="color:var(--muted);font-size:0.9em">(0.099)</span></td></tr><tr><td>Prof. dev. × Nonprofit-led</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">0.153*<br><span style="color:var(--muted);font-size:0.9em">(0.074)</span></td></tr><tr><td>Feedback × Nonprofit-led</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">-0.250†<br><span style="color:var(--muted);font-size:0.9em">(0.131)</span></td></tr><tr><td>Nonprofit-led (moderator)</td><td class="num">0.017<br><span style="color:var(--muted);font-size:0.9em">(0.022)</span></td><td class="num">-0.044<br><span style="color:var(--muted);font-size:0.9em">(0.083)</span></td><td class="num">0.020<br><span style="color:var(--muted);font-size:0.9em">(0.023)</span></td><td class="num">0.020<br><span style="color:var(--muted);font-size:0.9em">(0.089)</span></td></tr><tr><td>log(PIT) — CoC size</td><td class="num">0.030**<br><span style="color:var(--muted);font-size:0.9em">(0.010)</span></td><td class="num">0.030**<br><span style="color:var(--muted);font-size:0.9em">(0.010)</span></td><td class="num">0.030**<br><span style="color:var(--muted);font-size:0.9em">(0.009)</span></td><td class="num">0.032**<br><span style="color:var(--muted);font-size:0.9em">(0.010)</span></td></tr><tr><td>Observations (CoC-years)</td><td class="num">607</td><td class="num">607</td><td class="num">607</td><td class="num">607</td></tr><tr><td>R²</td><td class="num">0.116</td><td class="num">0.117</td><td class="num">0.130</td><td class="num">0.140</td></tr><tr><td>Year fixed effects</td><td class="num">Yes</td><td class="num">Yes</td><td class="num">Yes</td><td class="num">Yes</td></tr><tr><td>Clustered SE</td><td class="num">state</td><td class="num">state</td><td class="num">state</td><td class="num">state</td></tr></table></div>
 <p class="lead" style="margin-top:0.4em">Cluster-robust SEs in parentheses.
 <code>†</code>&nbsp;p&lt;.10 · <code>*</code>&nbsp;p&lt;.05 ·
-<code>**</code>&nbsp;p&lt;.01 · <code>***</code>&nbsp;p&lt;.001. The DV is a 0–1
-share, so this is a linear-probability-style specification; a fractional-logit
-(Papke–Wooldridge) check is a natural robustness follow-up.</p>
+<code>**</code>&nbsp;p&lt;.01 · <code>***</code>&nbsp;p&lt;.001. Blank = not in the
+model. M1–M2 use the overall
+PLE index; M3–M4 enter its three domains instead (script&nbsp;06, added 2026-10-02).
+The DV is a 0–1 share, so this is a linear-probability-style specification; a
+fractional-logit (Papke–Wooldridge) check is a natural robustness follow-up.</p>
 
 <h2>Which domain drives it?</h2>
-<p class="lead">The PLE index averages three domains. Entering them separately
-(R script&nbsp;06, same specification; added 2026-10-02):</p>
-<table><tr><th>PLE domain</th><th class="num">Joint</th><th class="num">One at a time</th><th class="num">Joint, <code>avail</code></th></tr><tr><td>Umbrella — structural inclusion</td><td class="num">0.131*<br><span style="color:var(--muted);font-size:0.9em">(0.051)</span></td><td class="num">0.185**<br><span style="color:var(--muted);font-size:0.9em">(0.054)</span></td><td class="num">0.043<br><span style="color:var(--muted);font-size:0.9em">(0.063)</span></td></tr><tr><td>Professional development</td><td class="num">0.010<br><span style="color:var(--muted);font-size:0.9em">(0.082)</span></td><td class="num">0.076<br><span style="color:var(--muted);font-size:0.9em">(0.076)</span></td><td class="num">-0.006<br><span style="color:var(--muted);font-size:0.9em">(0.095)</span></td></tr><tr><td>Feedback</td><td class="num">0.255***<br><span style="color:var(--muted);font-size:0.9em">(0.064)</span></td><td class="num">0.310***<br><span style="color:var(--muted);font-size:0.9em">(0.065)</span></td><td class="num">0.403***<br><span style="color:var(--muted);font-size:0.9em">(0.108)</span></td></tr><tr><td>Nonprofit-led</td><td class="num">0.020<br><span style="color:var(--muted);font-size:0.9em">(0.023)</span></td><td class="num">(in each)</td><td class="num">0.018<br><span style="color:var(--muted);font-size:0.9em">(0.025)</span></td></tr><tr><td>N / R²</td><td class="num">607 / 0.130</td><td class="num">607 / 0.103 · 0.079 · 0.116</td><td class="num">575 / 0.084</td></tr></table>
-<p class="lead" style="margin-top:0.4em">Cluster-robust SEs in parentheses; all
-models include log(PIT) and year FE. <code>avail</code> = unmentioned indicators
-skipped rather than scored 0 (N smaller: CoC-years missing a whole domain drop out).</p>
 <div class="findings-box">
-  <h3>Domain split</h3>
+  <h3>Domain split (M3–M4)</h3>
   <ul>
     <li><strong>Feedback</strong> carries the effect most robustly
-    (B&nbsp;=&nbsp;0.255*** jointly,
+    (M3: B&nbsp;=&nbsp;0.255***,
     p&nbsp;&lt;&nbsp;.001), and it holds under the <code>avail</code>
-    convention (B&nbsp;=&nbsp;0.403***).</li>
+    convention (B&nbsp;=&nbsp;0.403***; table below).</li>
     <li><strong>Umbrella</strong> is significant under <code>null0</code>
     (B&nbsp;=&nbsp;0.131*) but not under
     <code>avail</code> (p&nbsp;=&nbsp;.498) — part of it may reflect
@@ -183,10 +179,23 @@ skipped rather than scored 0 (N smaller: CoC-years missing a whole domain drop o
     (p&nbsp;=&nbsp;.900).</li>
     <li>Caution: equal standardized domain effects cannot be rejected
     (p&nbsp;=&nbsp;.238), so the domains differ in
-    significance, not demonstrably in size. Domain × nonprofit-led interactions are
-    jointly weak (p&nbsp;=&nbsp;.079; exploratory).</li>
+    significance, not demonstrably in size.</li>
+    <li><strong>Moderation (M4)</strong> is mixed. Individually, the prof-dev
+    interaction is positive (B&nbsp;=&nbsp;0.153*,
+    p&nbsp;=&nbsp;.044) and the feedback interaction
+    negative (B&nbsp;=&nbsp;-0.250†,
+    p&nbsp;=&nbsp;.062), but the three interactions are
+    not jointly significant at .05 (p&nbsp;=&nbsp;.079) — treat as
+    exploratory.</li>
   </ul>
 </div>
+
+<h2>Robustness of the domain estimates</h2>
+<table><tr><th>PLE domain</th><th class="num">M3 (joint)</th><th class="num">One at a time</th><th class="num">Joint, <code>avail</code></th></tr><tr><td>Umbrella — structural inclusion</td><td class="num">0.131*<br><span style="color:var(--muted);font-size:0.9em">(0.051)</span></td><td class="num">0.185**<br><span style="color:var(--muted);font-size:0.9em">(0.054)</span></td><td class="num">0.043<br><span style="color:var(--muted);font-size:0.9em">(0.063)</span></td></tr><tr><td>Professional development</td><td class="num">0.010<br><span style="color:var(--muted);font-size:0.9em">(0.082)</span></td><td class="num">0.076<br><span style="color:var(--muted);font-size:0.9em">(0.076)</span></td><td class="num">-0.006<br><span style="color:var(--muted);font-size:0.9em">(0.095)</span></td></tr><tr><td>Feedback</td><td class="num">0.255***<br><span style="color:var(--muted);font-size:0.9em">(0.064)</span></td><td class="num">0.310***<br><span style="color:var(--muted);font-size:0.9em">(0.065)</span></td><td class="num">0.403***<br><span style="color:var(--muted);font-size:0.9em">(0.108)</span></td></tr><tr><td>N / R²</td><td class="num">607 / 0.130</td><td class="num">607 / 0.103 · 0.079 · 0.116</td><td class="num">575 / 0.084</td></tr></table>
+<p class="lead" style="margin-top:0.4em">Cluster-robust SEs in parentheses; all
+models include nonprofit-led, log(PIT) and year FE. <code>avail</code> = unmentioned
+indicators skipped rather than scored 0 (N smaller: CoC-years missing a whole domain
+drop out).</p>
 
 <div class="callout">
   <div class="callout-title">Why year FE, not CoC FE</div>
@@ -209,8 +218,8 @@ skipped rather than scored 0 (N smaller: CoC-years missing a whole domain drop o
 
 <p class="lead">연구 질문에 대한 패널 분석: PLE 참여가 CoC의 반범죄화 활동을 높이는가,
 그리고 CoC 리더십이 이를 조절하는가? 연도 고정효과 + 주 클러스터 SE의 선형 패널
-모델을 R(<code>fixest</code>, script&nbsp;05)로 추정했으며, 숫자는 그 출력에서 직접
-읽습니다.</p>
+모델을 R(<code>fixest</code>, scripts&nbsp;05–06)로 추정했으며, 숫자는 그 출력에서
+직접 읽습니다.</p>
 
 <h2>모형</h2>
 <div style="overflow-x:auto;margin:1.5em 0">
@@ -243,35 +252,31 @@ skipped rather than scored 0 (N smaller: CoC-years missing a whole domain drop o
     <li><strong>PLE 참여는 반범죄화 활동과 양(+)의 연관</strong>
     (B&nbsp;=&nbsp;0.35**). PLE 지수 전 범위를 이동하면 활동 지수가 크게 상승 —
     핵심 가설 지지.</li>
-    <li><strong>CoC 리더십의 조절효과는 유의하지 않음</strong>
-    (PLE&nbsp;×&nbsp;비영리 주도 상호작용 비유의), 주효과도 ≈&nbsp;0. 비영리든 정부
-    주도든 PLE–활동 관계는 유지됩니다.</li>
+    <li>종합 지수(M1–M2)에서는 <strong>CoC 리더십의 조절효과가 유의하지 않음</strong>
+    (PLE&nbsp;×&nbsp;비영리 주도 상호작용 비유의), 주효과도 ≈&nbsp;0. 도메인별
+    상호작용(M4)은 엇갈립니다 — 아래 참조.</li>
     <li><strong>규모가 큰 CoC</strong>(log PIT 높음)일수록 활동이 다소 많음.</li>
   </ul>
 </div>
 
 <h2>추정치</h2>
-<table><tr><th>변수</th><th class="num">M1: 주효과</th><th class="num">M2: 조절</th></tr><tr><td>PLE 참여 지수</td><td class="num">0.351**<br><span style="color:var(--muted);font-size:0.9em">(0.106)</span></td><td class="num">0.300*<br><span style="color:var(--muted);font-size:0.9em">(0.120)</span></td></tr><tr><td>비영리 주도 (조절)</td><td class="num">0.017<br><span style="color:var(--muted);font-size:0.9em">(0.022)</span></td><td class="num">-0.044<br><span style="color:var(--muted);font-size:0.9em">(0.084)</span></td></tr><tr><td>PLE × 비영리 주도</td><td class="num">—</td><td class="num">0.112<br><span style="color:var(--muted);font-size:0.9em">(0.151)</span></td></tr><tr><td>log(PIT) — CoC 규모</td><td class="num">0.030**<br><span style="color:var(--muted);font-size:0.9em">(0.010)</span></td><td class="num">0.030**<br><span style="color:var(--muted);font-size:0.9em">(0.010)</span></td></tr><tr><td>관측치 (CoC-연도)</td><td class="num">607</td><td class="num">607</td></tr><tr><td>R²</td><td class="num">0.116</td><td class="num">0.117</td></tr><tr><td>연도 고정효과</td><td class="num">Yes</td><td class="num">Yes</td></tr><tr><td>클러스터 SE</td><td class="num">주</td><td class="num">주</td></tr></table>
+<div style="overflow-x:auto"><table><tr><th>변수</th><th class="num">M1: 주효과</th><th class="num">M2: 조절</th><th class="num">M3: 도메인</th><th class="num">M4: 도메인 조절</th></tr><tr><td>PLE 참여 지수</td><td class="num">0.351**<br><span style="color:var(--muted);font-size:0.9em">(0.106)</span></td><td class="num">0.300*<br><span style="color:var(--muted);font-size:0.9em">(0.120)</span></td><td class="num"></td><td class="num"></td></tr><tr><td>PLE × 비영리 주도</td><td class="num"></td><td class="num">0.112<br><span style="color:var(--muted);font-size:0.9em">(0.151)</span></td><td class="num"></td><td class="num"></td></tr><tr><td>Umbrella — 구조적 포함</td><td class="num"></td><td class="num"></td><td class="num">0.131*<br><span style="color:var(--muted);font-size:0.9em">(0.051)</span></td><td class="num">0.097<br><span style="color:var(--muted);font-size:0.9em">(0.088)</span></td></tr><tr><td>전문성 개발</td><td class="num"></td><td class="num"></td><td class="num">0.010<br><span style="color:var(--muted);font-size:0.9em">(0.082)</span></td><td class="num">-0.061<br><span style="color:var(--muted);font-size:0.9em">(0.076)</span></td></tr><tr><td>환류(Feedback)</td><td class="num"></td><td class="num"></td><td class="num">0.255***<br><span style="color:var(--muted);font-size:0.9em">(0.064)</span></td><td class="num">0.379***<br><span style="color:var(--muted);font-size:0.9em">(0.097)</span></td></tr><tr><td>Umbrella × 비영리 주도</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">0.075<br><span style="color:var(--muted);font-size:0.9em">(0.099)</span></td></tr><tr><td>전문성 개발 × 비영리 주도</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">0.153*<br><span style="color:var(--muted);font-size:0.9em">(0.074)</span></td></tr><tr><td>환류 × 비영리 주도</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">-0.250†<br><span style="color:var(--muted);font-size:0.9em">(0.131)</span></td></tr><tr><td>비영리 주도 (조절)</td><td class="num">0.017<br><span style="color:var(--muted);font-size:0.9em">(0.022)</span></td><td class="num">-0.044<br><span style="color:var(--muted);font-size:0.9em">(0.083)</span></td><td class="num">0.020<br><span style="color:var(--muted);font-size:0.9em">(0.023)</span></td><td class="num">0.020<br><span style="color:var(--muted);font-size:0.9em">(0.089)</span></td></tr><tr><td>log(PIT) — CoC 규모</td><td class="num">0.030**<br><span style="color:var(--muted);font-size:0.9em">(0.010)</span></td><td class="num">0.030**<br><span style="color:var(--muted);font-size:0.9em">(0.010)</span></td><td class="num">0.030**<br><span style="color:var(--muted);font-size:0.9em">(0.009)</span></td><td class="num">0.032**<br><span style="color:var(--muted);font-size:0.9em">(0.010)</span></td></tr><tr><td>관측치 (CoC-연도)</td><td class="num">607</td><td class="num">607</td><td class="num">607</td><td class="num">607</td></tr><tr><td>R²</td><td class="num">0.116</td><td class="num">0.117</td><td class="num">0.130</td><td class="num">0.140</td></tr><tr><td>연도 고정효과</td><td class="num">예</td><td class="num">예</td><td class="num">예</td><td class="num">예</td></tr><tr><td>클러스터 SE</td><td class="num">주</td><td class="num">주</td><td class="num">주</td><td class="num">주</td></tr></table></div>
 <p class="lead" style="margin-top:0.4em">괄호는 클러스터-강건 SE.
 <code>†</code>&nbsp;p&lt;.10 · <code>*</code>&nbsp;p&lt;.05 ·
-<code>**</code>&nbsp;p&lt;.01 · <code>***</code>&nbsp;p&lt;.001. DV가 0–1 비율이라
-선형확률 유형 사양이며, 분수 로짓(Papke–Wooldridge) 점검이 자연스러운 강건성
-후속입니다.</p>
+<code>**</code>&nbsp;p&lt;.01 · <code>***</code>&nbsp;p&lt;.001. 빈칸 = 모형에 없는
+변수. M1–M2는 PLE 종합
+지수를, M3–M4는 그 대신 세 도메인을 투입합니다(script&nbsp;06, 2026-10-02 추가).
+DV가 0–1 비율이라 선형확률 유형 사양이며, 분수 로짓(Papke–Wooldridge) 점검이
+자연스러운 강건성 후속입니다.</p>
 
 <h2>어느 도메인이 효과를 내는가?</h2>
-<p class="lead">PLE 지수는 세 도메인의 평균입니다. 도메인을 따로 투입한 결과
-(R script&nbsp;06, 동일 사양; 2026-10-02 추가):</p>
-<table><tr><th>PLE 도메인</th><th class="num">동시 투입</th><th class="num">하나씩 투입</th><th class="num">동시, <code>avail</code></th></tr><tr><td>Umbrella — 구조적 포함</td><td class="num">0.131*<br><span style="color:var(--muted);font-size:0.9em">(0.051)</span></td><td class="num">0.185**<br><span style="color:var(--muted);font-size:0.9em">(0.054)</span></td><td class="num">0.043<br><span style="color:var(--muted);font-size:0.9em">(0.063)</span></td></tr><tr><td>전문성 개발</td><td class="num">0.010<br><span style="color:var(--muted);font-size:0.9em">(0.082)</span></td><td class="num">0.076<br><span style="color:var(--muted);font-size:0.9em">(0.076)</span></td><td class="num">-0.006<br><span style="color:var(--muted);font-size:0.9em">(0.095)</span></td></tr><tr><td>환류(Feedback)</td><td class="num">0.255***<br><span style="color:var(--muted);font-size:0.9em">(0.064)</span></td><td class="num">0.310***<br><span style="color:var(--muted);font-size:0.9em">(0.065)</span></td><td class="num">0.403***<br><span style="color:var(--muted);font-size:0.9em">(0.108)</span></td></tr><tr><td>비영리 주도</td><td class="num">0.020<br><span style="color:var(--muted);font-size:0.9em">(0.023)</span></td><td class="num">(각 모형 포함)</td><td class="num">0.018<br><span style="color:var(--muted);font-size:0.9em">(0.025)</span></td></tr><tr><td>N / R²</td><td class="num">607 / 0.130</td><td class="num">607 / 0.103 · 0.079 · 0.116</td><td class="num">575 / 0.084</td></tr></table>
-<p class="lead" style="margin-top:0.4em">괄호는 클러스터-강건 SE이며, 모든 모형에
-log(PIT)와 연도 고정효과를 포함합니다. <code>avail</code> = 언급 없는 지표를 0점이 아니라
-제외 (도메인 전체가 빈 CoC-연도가 빠져 N이 작음).</p>
 <div class="findings-box">
-  <h3>도메인 분해</h3>
+  <h3>도메인 분해 (M3–M4)</h3>
   <ul>
     <li><strong>환류(Feedback)</strong>가 가장 견고하게 효과를 냅니다
-    (동시 투입 B&nbsp;=&nbsp;0.255***,
+    (M3: B&nbsp;=&nbsp;0.255***,
     p&nbsp;&lt;&nbsp;.001). <code>avail</code> 규약에서도 유지됩니다
-    (B&nbsp;=&nbsp;0.403***).</li>
+    (B&nbsp;=&nbsp;0.403***; 아래 표).</li>
     <li><strong>Umbrella</strong>는 <code>null0</code>에서는 유의하지만
     (B&nbsp;=&nbsp;0.131*) <code>avail</code>에서는
     유의하지 않습니다(p&nbsp;=&nbsp;.498). 일부는 CoC가 구조적 포함을
@@ -280,10 +285,22 @@ log(PIT)와 연도 고정효과를 포함합니다. <code>avail</code> = 언급 
     (p&nbsp;=&nbsp;.900).</li>
     <li>주의: 표준화 계수가 같다는 가설은 기각되지 않습니다
     (p&nbsp;=&nbsp;.238). 즉 도메인 간 차이는 유의성의 차이이지
-    크기의 차이로 입증된 것은 아닙니다. 도메인 × 비영리 주도 상호작용도 결합 검정에서
-    약합니다(p&nbsp;=&nbsp;.079; 탐색적).</li>
+    크기의 차이로 입증된 것은 아닙니다.</li>
+    <li><strong>조절효과(M4)</strong>는 엇갈립니다. 개별적으로는 전문성 개발 상호작용이
+    양(+)(B&nbsp;=&nbsp;0.153*,
+    p&nbsp;=&nbsp;.044), 환류 상호작용이
+    음(−)(B&nbsp;=&nbsp;-0.250†,
+    p&nbsp;=&nbsp;.062)이지만, 세 상호작용의 결합 검정은
+    .05 수준에서 유의하지 않습니다(p&nbsp;=&nbsp;.079). 탐색적 결과로만
+    봐야 합니다.</li>
   </ul>
 </div>
+
+<h2>도메인 추정치의 강건성</h2>
+<table><tr><th>PLE 도메인</th><th class="num">M3 (동시 투입)</th><th class="num">하나씩 투입</th><th class="num">동시, <code>avail</code></th></tr><tr><td>Umbrella — 구조적 포함</td><td class="num">0.131*<br><span style="color:var(--muted);font-size:0.9em">(0.051)</span></td><td class="num">0.185**<br><span style="color:var(--muted);font-size:0.9em">(0.054)</span></td><td class="num">0.043<br><span style="color:var(--muted);font-size:0.9em">(0.063)</span></td></tr><tr><td>전문성 개발</td><td class="num">0.010<br><span style="color:var(--muted);font-size:0.9em">(0.082)</span></td><td class="num">0.076<br><span style="color:var(--muted);font-size:0.9em">(0.076)</span></td><td class="num">-0.006<br><span style="color:var(--muted);font-size:0.9em">(0.095)</span></td></tr><tr><td>환류(Feedback)</td><td class="num">0.255***<br><span style="color:var(--muted);font-size:0.9em">(0.064)</span></td><td class="num">0.310***<br><span style="color:var(--muted);font-size:0.9em">(0.065)</span></td><td class="num">0.403***<br><span style="color:var(--muted);font-size:0.9em">(0.108)</span></td></tr><tr><td>N / R²</td><td class="num">607 / 0.130</td><td class="num">607 / 0.103 · 0.079 · 0.116</td><td class="num">575 / 0.084</td></tr></table>
+<p class="lead" style="margin-top:0.4em">괄호는 클러스터-강건 SE이며, 모든 모형에
+비영리 주도, log(PIT), 연도 고정효과를 포함합니다. <code>avail</code> = 언급 없는 지표를
+0점이 아니라 제외 (도메인 전체가 빈 CoC-연도가 빠져 N이 작음).</p>
 
 <div class="callout">
   <div class="callout-title">왜 CoC FE가 아니라 연도 FE인가</div>
